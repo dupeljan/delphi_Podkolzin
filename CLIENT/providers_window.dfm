@@ -12,6 +12,7 @@ object PROVIDERS_FORM: TPROVIDERS_FORM
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid

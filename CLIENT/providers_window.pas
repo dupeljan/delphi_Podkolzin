@@ -20,6 +20,7 @@ type
     procedure ADD1Click(Sender: TObject);
     procedure DELETEClick(Sender: TObject);
     procedure EDITClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
@@ -49,10 +50,7 @@ begin
   begin
 
     // Fill db procedure parametrs with form valut
-    dm.spAddProvider.ParamByName('IN_NAME                        ').AsString:= provider_add_form.labelEdit_name.Text;
-    //dm.spAddProvider.ParamByName('IN_MAJOR').Value:= 1;
-    //dm.spAddProvider.ParamByName('IN_VAT').Value:= 2;
-
+    dm.spAddProvider.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
 
     // Execute the procedure
     if not dm.spAddProvider.Transaction.InTransaction then
@@ -99,6 +97,11 @@ begin
 end;
 
 
+procedure TPROVIDERS_FORM.FormCreate(Sender: TObject);
+begin
+  dm.Tprovider.Open;
+end;
+
 procedure TPROVIDERS_FORM.EDITClick(Sender: TObject);
 var id : integer;
 begin
@@ -116,8 +119,6 @@ begin
     begin
         // Fill db procedure parametrs with form valut
         dm.spEditprovider.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
-        //dm.spEditProvider.ParamByName('IN_MAJOR').Value:= 1;
-        //dm.spEditProvider.ParamByName('IN_VAT').Value:= 2;
         dm.spEditProvider.ParamByName('IN_ID').Value:= dm.TProvider.FieldByName('ID').AsInteger;
 
 

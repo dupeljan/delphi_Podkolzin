@@ -31,12 +31,13 @@ object MAIN_WINDOW: TMAIN_WINDOW
     TabOrder = 1
   end
   object PRODUCTS: TButton
-    Left = 104
+    Left = 96
     Top = 112
     Width = 75
     Height = 25
     Caption = 'PRODUCTS'
     TabOrder = 2
+    OnClick = PRODUCTSClick
   end
   object LOSS: TButton
     Left = 96

@@ -14,6 +14,10 @@ type
     TProvider: TIBTable;
     spDeleteProvider: TIBStoredProc;
     spEditProvider: TIBStoredProc;
+    TProduct: TIBTable;
+    spAddProduct: TIBStoredProc;
+    spDeleteProduct: TIBStoredProc;
+    spEditProduct: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
@@ -34,7 +38,6 @@ implementation
 procedure Tdm.DataModuleCreate(Sender: TObject);
 begin
     my_database.Open;
-    tProvider.Open;
 end;
 
 procedure Tdm.DataModuleDestroy(Sender: TObject);

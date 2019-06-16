@@ -1,0 +1,27 @@
+unit product_add;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  Tproduct_add_form = class(TForm)
+    leName: TLabeledEdit;
+    leprovider: TListBox;
+    LabelProvider: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  product_add_form: Tproduct_add_form;
+
+implementation
+
+{$R *.dfm}
+
+end.

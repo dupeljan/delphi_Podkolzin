@@ -2,8 +2,8 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 575
-  Width = 393
+  Height = 588
+  Width = 720
   object my_database: TIBDatabase
     Connected = True
     DatabaseName = 
@@ -21,7 +21,7 @@ object dm: Tdm
   end
   object IBTransaction1: TIBTransaction
     DefaultDatabase = my_database
-    Left = 184
+    Left = 176
     Top = 56
   end
   object spAddProvider: TIBStoredProc
@@ -49,8 +49,8 @@ object dm: Tdm
     CachedUpdates = False
     TableName = 'PROVIDER'
     UniDirectional = False
-    Left = 208
-    Top = 136
+    Left = 64
+    Top = 184
   end
   object spDeleteProvider: TIBStoredProc
     Database = my_database
@@ -61,7 +61,7 @@ object dm: Tdm
     ParamData = <
       item
         DataType = ftInteger
-        Name = 'IN_ID                          '
+        Name = 'IN_ID'
         ParamType = ptInput
       end>
   end
@@ -72,6 +72,75 @@ object dm: Tdm
     Left = 256
     Top = 240
     ParamData = <
+      item
+        DataType = ftString
+        Name = 'IN_NAME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object TProduct: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'PRODUCT'
+    UniDirectional = False
+    Left = 432
+    Top = 152
+  end
+  object spAddProduct: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_PRODUCT'
+    Left = 416
+    Top = 248
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'IN_NAME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_ID'
+        ParamType = ptOutput
+      end>
+  end
+  object spDeleteProduct: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'DELETE_PRODUCT'
+    Left = 504
+    Top = 248
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spEditProduct: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'EDIT_PRODUCT'
+    Left = 608
+    Top = 248
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER_ID'
+        ParamType = ptInput
+      end
       item
         DataType = ftString
         Name = 'IN_NAME'
