@@ -13,6 +13,7 @@ type
     spAddProduct: TIBStoredProc;
     TProduct: TIBTable;
     spDeleteProduct: TIBStoredProc;
+    spEditProduct: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private

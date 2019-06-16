@@ -76,4 +76,32 @@ object dm: Tdm
         ParamType = ptInput
       end>
   end
+  object spEditProduct: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'EDIT_PRODUCT'
+    Left = 256
+    Top = 240
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftBCD
+        Name = 'IN_VAT'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftWideString
+        Name = 'IN_MAJOR'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftWideString
+        Name = 'IN_NAME'
+        ParamType = ptInput
+      end>
+  end
 end

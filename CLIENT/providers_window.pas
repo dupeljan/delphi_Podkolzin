@@ -20,7 +20,6 @@ type
     procedure ADD1Click(Sender: TObject);
     procedure DELETEClick(Sender: TObject);
     procedure EDITClick(Sender: TObject);
-    procedure get_params_commit_result(proc :TIBstoretProc);
 
   private
     { Private declarations }
@@ -36,11 +35,21 @@ implementation
 {$R *.dfm}
 
 uses provider_add, data_module;
- procedure TPROVIDERS_FORM.get_params_commit_result(proc :TIBstoretProc);
- var id: int64;
- begin
+
+
+procedure TPROVIDERS_FORM.ADD1Click(Sender: TObject);
+var id : integer;
+begin
+  // Create provider_add_form
+  provider_add_form:= Tprovider_add_form.Create(Application);
+  provider_add_form.ShowModal;
+
+  // If receve information from provider_add_form
+  if provider_add_form.ModalResult= mrOk then
+  begin
+
     // Fill db procedure parametrs with form valut
-    proc.spAddProduct.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
+    dm.spAddProduct.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
     dm.spAddProduct.ParamByName('IN_MAJOR').Value:= 1;
     dm.spAddProduct.ParamByName('IN_VAT').Value:= 2;
 
@@ -57,18 +66,6 @@ uses provider_add, data_module;
     //  Set TProduct table and grid position
     dm.TProduct.Open;
     dm.TProduct.Locate('ID',id,[]);
- end;
-
-procedure TPROVIDERS_FORM.ADD1Click(Sender: TObject);
-begin
-  // Create provider_add_form
-  provider_add_form:= Tprovider_add_form.Create(Application);
-  provider_add_form.ShowModal;
-
-  // If receve information from provider_add_form
-  if provider_add_form.ModalResult= mrOk then
-  begin
-      get_params_commit_result;
   end;
   // Release add form
   provider_add_form.Release;
@@ -103,6 +100,7 @@ end;
 
 
 procedure TPROVIDERS_FORM.EDITClick(Sender: TObject);
+var id : integer;
 begin
    // Create provider_add_form
   provider_add_form:= Tprovider_add_form.Create(Application);
@@ -116,7 +114,26 @@ begin
   // If receve information from provider_add_form
   if provider_add_form.ModalResult=mrOk then
     begin
-     get_params_commit_result;
+        // Fill db procedure parametrs with form valut
+        dm.spEditProduct.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
+        dm.spEditProduct.ParamByName('IN_MAJOR').Value:= 1;
+        dm.spEditProduct.ParamByName('IN_VAT').Value:= 2;
+        dm.spEditProduct.ParamByName('IN_ID').Value:= dm.TProduct.FieldByName('ID').AsInteger;
+
+
+        // Execute the procedure
+        if not dm.spEditProduct.Transaction.InTransaction then
+          dm.spEditProduct.Transaction.StartTransaction;
+        dm.spEditProduct.ExecProc;
+
+        // Got result from table
+        id:= dm.TProduct.FieldByName('ID').AsInteger;
+
+        dm.spAddProduct.Transaction.Commit;
+
+        //  Set TProduct table and grid position
+        dm.TProduct.Open;
+        dm.TProduct.Locate('ID',id,[]);
     end;
   provider_add_form.Release;
 
