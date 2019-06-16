@@ -1,0 +1,26 @@
+object provider_add_form: Tprovider_add_form
+  Left = 0
+  Top = 0
+  Caption = 'provider_add_form'
+  ClientHeight = 231
+  ClientWidth = 458
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object labelEdit_name: TLabeledEdit
+    Left = 96
+    Top = 64
+    Width = 217
+    Height = 21
+    EditLabel.Width = 72
+    EditLabel.Height = 13
+    EditLabel.Caption = 'labelEdit_name'
+    TabOrder = 0
+  end
+end

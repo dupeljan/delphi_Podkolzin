@@ -1,0 +1,30 @@
+unit main;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMAIN_WINDOW = class(TForm)
+    PROVIDERS: TButton;
+    PURCHASE_INV: TButton;
+    PRODUCTS: TButton;
+    LOSS: TButton;
+    DAYLY_INCOME: TButton;
+    Button7: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MAIN_WINDOW: TMAIN_WINDOW;
+
+implementation
+
+{$R *.dfm}
+
+end.

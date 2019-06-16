@@ -1,0 +1,125 @@
+unit providers_window;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TPROVIDERS_FORM = class(TForm)
+    MainMenu1: TMainMenu;
+    ADD1: TMenuItem;
+    DELETE: TMenuItem;
+    EDIT: TMenuItem;
+    EXIT1: TMenuItem;
+    DataSource1: TDataSource;
+    DBGrid1: TDBGrid;
+    procedure EXIT1Click(Sender: TObject);
+    procedure ADD1Click(Sender: TObject);
+    procedure DELETEClick(Sender: TObject);
+    procedure EDITClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PROVIDERS_FORM: TPROVIDERS_FORM;
+
+implementation
+
+{$R *.dfm}
+
+uses provider_add, data_module;
+
+procedure TPROVIDERS_FORM.ADD1Click(Sender: TObject);
+var id: int64;
+begin
+  provider_add_form:= Tprovider_add_form.Create(Application);
+  provider_add_form.ShowModal;
+  if provider_add_form.ModalResult= mrOk then
+  begin
+          //dm.spAddProduct.Params[3].Value:=fProduct.eProdName.Text;
+    dm.spAddProduct.ParamByName('IN_NAME').AsString:= 'blabla';//provider_add_form.labelEdit_name.Text;
+    dm.spAddProduct.ParamByName('IN_MAJOR').Value:= 1;
+    dm.spAddProduct.ParamByName('IN_VAT').Value:= 2;
+
+
+
+    if not dm.spAddProduct.Transaction.InTransaction then
+      dm.spAddProduct.Transaction.StartTransaction;
+    dm.spAddProduct.ExecProc;
+    id:=dm.spAddProduct.ParamByName('OUT_ID').AsInteger;
+    dm.spAddProduct.Transaction.Commit;
+    dm.TProduct.Open;
+    dm.TProduct.Locate('ID',id,[]);
+  end;
+  provider_add_form.Release;
+
+end;
+
+procedure TPROVIDERS_FORM.DELETEClick(Sender: TObject);
+begin
+  if MessageDlg('kill '+dm.tProduct.FieldByName('NAME').AsString+'*?',
+                mtConfirmation,[mbYes,mbNo],0)=mrYes then
+  begin
+    dm.spDeleteProduct.ParamByName('IN_ID').Value:=dm.tProduct.FieldByName('ID').Value;
+    if not(dm.spDeleteProduct.Transaction.InTransaction) then
+        dm.spDeleteProduct.Transaction.StartTransaction;
+    dm.spDeleteProduct.ExecProc;
+    dm.spDeleteProduct.Transaction.Commit;
+    dm.tProduct.Open;
+  end;
+end;
+
+procedure TPROVIDERS_FORM.EXIT1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+
+procedure TPROVIDERS_FORM.EDITClick(Sender: TObject);
+var
+   id: integer;
+begin
+  fProductEdit:=tfProductEdit.Create(Application);
+  dm.tProductType.Open;
+
+  dm.tProductType.Locate('ID',dm.tProduct.FieldByName('PRODUCT_TYPE_ID').Value,[]);
+  fProductEdit.leOtdel.Tag:=dm.tProduct.FieldByName('PRODUCT_TYPE_ID').Value;
+  fProductEdit.leOtdel.Text:=dm.tProductType.FieldByName('TYPENAME').AsString;
+  dm.tProductType.Close;
+  fProductEdit.leName.Text:=dm.tProduct.FieldByName('NAME').AsString;
+  fProductEdit.leMajor.Text:=dm.tProduct.FieldByName('MAJOR').AsString;
+  fProductEdit.leVAT.Text:=dm.tProduct.FieldByName('VAT').AsString;
+  fProductEdit.ShowModal;
+  if fProductEdit.ModalResult=mrOk then
+    begin
+      id:=dm.tProduct.FieldByName('ID').Value;
+      dm.spEditProduct.ParamByName('IN_ID').Value:=
+          dm.tProduct.FieldByName('ID').Value;
+      dm.spEditProduct.ParamByName('IN_PRODUCT_TYPE_ID').Value:=
+          fProductEdit.leOtdel.Tag;
+      dm.spEditProduct.ParamByName('IN_NAME').AsString:=
+          fProductEdit.leName.Text;
+      dm.spEditProduct.ParamByName('IN_MAJOR').Value:=
+          fProductEdit.leMajor.Text;
+      dm.spEditProduct.ParamByName('IN_VAT').Value:=
+          fProductEdit.leVAT.Text;
+
+      if not(dm.spEditProduct.Transaction.InTransaction) then
+        dm.spEditProduct.Transaction.StartTransaction;
+      dm.spEditProduct.ExecProc;
+      dm.spEditProduct.Transaction.Commit;
+      dm.tProduct.Open;
+      dm.tProduct.Locate('ID',id,[]);
+    end;
+  fProductEdit.Release;
+
+end;
+
+end.
