@@ -1,23 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.990,=C:\Users\dupel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.415,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.132,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\daily_income_add.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.015,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\providers_window.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.049,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\daily_income_window.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.636,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.784,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\loss_add.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.835,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.818,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_add.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.963,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\main.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.706,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_window.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.043,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_window.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.706,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_window.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.145,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_add.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.043,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_window.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.843,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\data_module.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.132,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\daily_income_add.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.599,C:\Users\dupel\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\VegetabelsProject.dproj</Transaction>
-    <Transaction>2019.06.16 06:29:51.843,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\data_module.pas</Transaction>
-    <Transaction>2019.06.16 06:29:51.963,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\main.pas</Transaction>
-    <Transaction>2019.06.16 06:29:51.988,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\provider_add.pas</Transaction>
-    <Transaction>2019.06.16 06:29:52.015,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\providers_window.pas</Transaction>
-    <Transaction>2019.06.16 08:10:12.571,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 08:11:51.706,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_window.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 08:11:51.706,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_window.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
-    <Transaction>2019.06.16 08:17:13.402,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 08:19:04.818,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_add.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
-    <Transaction>2019.06.16 08:19:04.818,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_add.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 14:20:16.693,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 14:20:50.043,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_window.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
-    <Transaction>2019.06.16 14:20:50.043,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_window.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 14:24:04.560,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
-    <Transaction>2019.06.16 14:24:37.145,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_add.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
-    <Transaction>2019.06.16 14:24:37.145,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_add.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.988,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\provider_add.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.049,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\daily_income_window.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.818,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\product_add.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.478,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\loss_window.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.784,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\loss_add.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.990,=C:\Users\dupel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.571,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.454,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.478,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\loss_window.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.402,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.145,C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\purchase_inv_add.dfm=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.560,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.693,=C:\Users\dupel\OneDrive\Рабочий стол\DELPHI ЗАЧЕТ\CLIENT\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

@@ -16,6 +16,8 @@ type
     procedure PROVIDERSClick(Sender: TObject);
     procedure PRODUCTSClick(Sender: TObject);
     procedure PURCHASE_INVClick(Sender: TObject);
+    procedure LOSSClick(Sender: TObject);
+    procedure DAYLY_INCOMEClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,7 +31,18 @@ implementation
 
 {$R *.dfm}
 
-uses providers_window, product_window, purchase_inv_window;
+uses providers_window, product_window, purchase_inv_window, loss_window,
+  daily_income_window;
+
+procedure TMAIN_WINDOW.DAYLY_INCOMEClick(Sender: TObject);
+begin
+  DAILY_INCOME_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.LOSSClick(Sender: TObject);
+begin
+  LOSS_FORM.ShowModal;
+end;
 
 procedure TMAIN_WINDOW.PRODUCTSClick(Sender: TObject);
 begin

@@ -3,7 +3,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   Top = 0
   Caption = 'MAIN_WINDOW'
   ClientHeight = 427
-  ClientWidth = 276
+  ClientWidth = 307
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,46 +14,48 @@ object MAIN_WINDOW: TMAIN_WINDOW
   PixelsPerInch = 96
   TextHeight = 13
   object PROVIDERS: TButton
-    Left = 96
-    Top = 81
-    Width = 75
-    Height = 25
+    Left = 40
+    Top = 33
+    Width = 193
+    Height = 80
     Caption = 'PROVIDERS'
     TabOrder = 0
     OnClick = PROVIDERSClick
   end
   object PURCHASE_INV: TButton
-    Left = 96
-    Top = 161
-    Width = 113
-    Height = 25
+    Left = 40
+    Top = 169
+    Width = 193
+    Height = 64
     Caption = 'PURCHASE_INV'
     TabOrder = 1
     OnClick = PURCHASE_INVClick
   end
   object PRODUCTS: TButton
-    Left = 96
+    Left = 40
     Top = 112
-    Width = 75
-    Height = 25
+    Width = 193
+    Height = 59
     Caption = 'PRODUCTS'
     TabOrder = 2
     OnClick = PRODUCTSClick
   end
   object LOSS: TButton
-    Left = 96
-    Top = 192
-    Width = 75
-    Height = 25
+    Left = 40
+    Top = 232
+    Width = 193
+    Height = 66
     Caption = 'LOSS'
     TabOrder = 3
+    OnClick = LOSSClick
   end
   object DAYLY_INCOME: TButton
-    Left = 96
-    Top = 240
-    Width = 75
-    Height = 25
+    Left = 40
+    Top = 296
+    Width = 193
+    Height = 81
     Caption = 'DAYLY_INCOME'
     TabOrder = 4
+    OnClick = DAYLY_INCOMEClick
   end
 end

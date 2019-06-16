@@ -1,0 +1,77 @@
+unit loss_window;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Menus, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  Tloss_form = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    MainMenu1: TMainMenu;
+    ADD: TMenuItem;
+    procedure FormCreate(Sender: TObject);
+    procedure ADDClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  loss_form: Tloss_form;
+
+implementation
+
+{$R *.dfm}
+ uses data_module, loss_add;
+procedure Tloss_form.ADDClick(Sender: TObject);
+begin
+var id : integer;
+begin
+   // Create provider_add_form
+  provider_add_form:= Tprovider_add_form.Create(Application);
+
+  // Fill from from table
+  provider_add_form.labelEdit_name.Text :=  dm.TProvider.FieldByName('NAME').AsString;
+
+  // Show form
+  provider_add_form.ShowModal;
+
+  // If receve information from provider_add_form
+  if provider_add_form.ModalResult=mrOk then
+    begin
+        // Fill db procedure parametrs with form valut
+        dm.spEditprovider.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
+        dm.spEditProvider.ParamByName('IN_ID').Value:= dm.TProvider.FieldByName('ID').AsInteger;
+
+
+        // Execute the procedure
+        if not dm.spEditProvider.Transaction.InTransaction then
+          dm.spEditProvider.Transaction.StartTransaction;
+        dm.spEditProvider.ExecProc;
+
+        // Got result from table
+        id:= dm.TProvider.FieldByName('ID').AsInteger;
+
+        dm.spEditProvider.Transaction.Commit;
+
+        //  Set TProduct table and grid position
+        dm.update_all;
+        dm.TProvider.Open;
+        dm.TProvider.Locate('ID',id,[]);
+    end;
+  provider_add_form.Release;
+
+end;
+end;
+
+procedure Tloss_form.FormCreate(Sender: TObject);
+begin
+  dm.update_all;
+end;
+
+end.

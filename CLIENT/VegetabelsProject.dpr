@@ -9,7 +9,11 @@ uses
   product_window in 'product_window.pas' {PRODUCT_FORM},
   product_add in 'product_add.pas' {product_add_form},
   purchase_inv_window in 'purchase_inv_window.pas' {purchase_inv_form},
-  purchase_inv_add in 'purchase_inv_add.pas' {purchase_inv_add_form};
+  purchase_inv_add in 'purchase_inv_add.pas' {purchase_inv_add_form},
+  loss_window in 'loss_window.pas' {loss_form},
+  loss_add in 'loss_add.pas' {loss_add_form},
+  daily_income_window in 'daily_income_window.pas' {DAILY_INCOME_FORM},
+  daily_income_add in 'daily_income_add.pas' {daily_income_add_form};
 
 {$R *.res}
 
@@ -24,5 +28,9 @@ begin
   Application.CreateForm(Tproduct_add_form, product_add_form);
   Application.CreateForm(Tpurchase_inv_form, purchase_inv_form);
   Application.CreateForm(Tpurchase_inv_add_form, purchase_inv_add_form);
+  Application.CreateForm(Tloss_form, loss_form);
+  Application.CreateForm(Tloss_add_form, loss_add_form);
+  Application.CreateForm(TDAILY_INCOME_FORM, DAILY_INCOME_FORM);
+  Application.CreateForm(Tdaily_income_add_form, daily_income_add_form);
   Application.Run;
 end.

@@ -2,8 +2,8 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 588
-  Width = 720
+  Height = 891
+  Width = 759
   object my_database: TIBDatabase
     Connected = True
     DatabaseName = 
@@ -91,15 +91,15 @@ object dm: Tdm
     CachedUpdates = False
     TableName = 'PRODUCT'
     UniDirectional = False
-    Left = 424
-    Top = 176
+    Left = 416
+    Top = 184
   end
   object spAddProduct: TIBStoredProc
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'ADD_PRODUCT'
-    Left = 416
-    Top = 248
+    Left = 408
+    Top = 256
     ParamData = <
       item
         DataType = ftString
@@ -121,8 +121,8 @@ object dm: Tdm
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'DELETE_PRODUCT'
-    Left = 504
-    Top = 248
+    Left = 496
+    Top = 256
     ParamData = <
       item
         DataType = ftInteger
@@ -134,8 +134,8 @@ object dm: Tdm
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'EDIT_PRODUCT'
-    Left = 608
-    Top = 248
+    Left = 600
+    Top = 256
     ParamData = <
       item
         DataType = ftInteger
@@ -207,6 +207,82 @@ object dm: Tdm
         DataType = ftInteger
         Name = 'IN_ID'
         ParamType = ptInput
+      end>
+  end
+  object TLoss: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'LOSS'
+    UniDirectional = False
+    Left = 416
+    Top = 336
+  end
+  object spAddLoss: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_LOSS'
+    Left = 416
+    Top = 408
+    ParamData = <
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_COUNT'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_ID'
+        ParamType = ptOutput
+      end>
+  end
+  object TDaily_income: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'DAILY_INCOME'
+    UniDirectional = False
+    Left = 584
+    Top = 336
+  end
+  object spAddDaily_income: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_DAILY_INCOME'
+    Left = 584
+    Top = 408
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_COUNT'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_ID'
+        ParamType = ptOutput
       end>
   end
 end

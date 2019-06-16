@@ -1,0 +1,30 @@
+unit loss_window;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  Tloss_form = class(TForm)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  loss_form: Tloss_form;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tloss_form.FormCreate(Sender: TObject);
+begin
+  dm.update_all;
+end;
+
+end.

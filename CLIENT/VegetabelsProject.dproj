@@ -131,6 +131,22 @@
             <Form>purchase_inv_add_form</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="loss_window.pas">
+            <Form>loss_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="loss_add.pas">
+            <Form>loss_add_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="daily_income_window.pas">
+            <Form>DAILY_INCOME_FORM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="daily_income_add.pas">
+            <Form>daily_income_add_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

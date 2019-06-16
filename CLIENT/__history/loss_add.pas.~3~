@@ -1,0 +1,26 @@
+unit loss_add;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  Tloss_add_form = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  loss_add_form: Tloss_add_form;
+
+implementation
+
+{$R *.dfm}
+
+end.
