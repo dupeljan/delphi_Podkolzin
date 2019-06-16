@@ -3,7 +3,7 @@ object PRODUCT_FORM: TPRODUCT_FORM
   Top = 0
   Caption = 'PRODUCT_FORM'
   ClientHeight = 391
-  ClientWidth = 536
+  ClientWidth = 1211
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object PRODUCT_FORM: TPRODUCT_FORM
   object DBGrid1: TDBGrid
     Left = 0
     Top = 0
-    Width = 320
-    Height = 120
+    Width = 1217
+    Height = 393
     DataSource = DataSource1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET

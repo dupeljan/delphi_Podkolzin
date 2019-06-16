@@ -98,6 +98,39 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="data_module.pas">
+            <Form>dm</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="main.pas">
+            <Form>MAIN_WINDOW</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="provider_add.pas">
+            <Form>provider_add_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="providers_window.pas">
+            <Form>PROVIDERS_FORM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="product_window.pas">
+            <Form>PRODUCT_FORM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="product_add.pas">
+            <Form>product_add_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="purchase_inv_window.pas">
+            <Form>purchase_inv_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="purchase_inv_add.pas">
+            <Form>purchase_inv_add_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -20,8 +20,10 @@ type
     spEditProduct: TIBStoredProc;
     TPurchase_inv: TIBTable;
     spAddPurchase_inv: TIBStoredProc;
+    spDeletePurchase_inv: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
+    procedure update_all();
   private
     { Private declarations }
   public
@@ -46,5 +48,14 @@ procedure Tdm.DataModuleDestroy(Sender: TObject);
 begin
     my_database.Close
 end;
+procedure Tdm.update_all;
+begin
+  dm.TProvider.Close;
+  dm.TProduct.Close;
+  dm.TPurchase_inv.Close;
 
+   dm.TProvider.Open;
+  dm.TProduct.Open;
+  dm.TPurchase_inv.Open;
+end;
 end.

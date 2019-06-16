@@ -59,6 +59,7 @@ begin
     dm.spAddProduct.Transaction.Commit;
 
     //  Set TProduct table and grid position
+    dm.update_all;
     dm.TProduct.Open;
     dm.TProduct.Locate('ID',id,[]);
   end;
@@ -84,6 +85,7 @@ begin
     dm.spDeleteProduct.Transaction.Commit;
 
     // Reopen table
+    dm.update_all;
     dm.TProduct.Open;
   end;
 end;
@@ -125,6 +127,7 @@ begin
         dm.spEditProduct.Transaction.Commit;
 
         //  Set TProduct table and grid position
+        dm.update_all;
         dm.TProduct.Open;
         dm.TProduct.Locate('ID',id,[]);
     end;
@@ -140,6 +143,7 @@ end;
 procedure TPRODUCT_FORM.FormCreate(Sender: TObject);
 begin
   // Open table before print it
+  dm.update_all;
   dm.Tproduct.Open;
 end;
 

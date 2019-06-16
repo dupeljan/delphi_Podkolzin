@@ -33,6 +33,7 @@ implementation
  uses data_module;
 procedure Tpurchase_inv_add_form.FormCreate(Sender: TObject);
 begin
+  dm.update_all;
   dm.TProduct.Open;
 end;
 

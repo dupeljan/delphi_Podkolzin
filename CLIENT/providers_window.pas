@@ -62,6 +62,7 @@ begin
     dm.spAddProvider.Transaction.Commit;
 
     //  Set TProduct table and grid position
+    dm.update_all;
     dm.TProvider.Open;
     dm.TProvider.Locate('ID',id,[]);
   end;
@@ -87,6 +88,7 @@ begin
     dm.spDeleteProvider.Transaction.Commit;
 
     // Reopen table
+    dm.update_all;
     dm.TProvider.Open;
   end;
 end;
@@ -99,6 +101,7 @@ end;
 
 procedure TPROVIDERS_FORM.FormCreate(Sender: TObject);
 begin
+  dm.update_all;
   dm.Tprovider.Open;
 end;
 
@@ -133,6 +136,7 @@ begin
         dm.spEditProvider.Transaction.Commit;
 
         //  Set TProduct table and grid position
+        dm.update_all;
         dm.TProvider.Open;
         dm.TProvider.Locate('ID',id,[]);
     end;

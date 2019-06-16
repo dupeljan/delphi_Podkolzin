@@ -33,6 +33,7 @@ uses data_module;
 procedure Tproduct_add_form.FormCreate(Sender: TObject);
 begin
   // Open table before print it
+  dm.update_all;
   dm.Tprovider.Open;
 end;
 
