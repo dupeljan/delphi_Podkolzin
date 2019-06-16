@@ -25,10 +25,11 @@ object MAIN_WINDOW: TMAIN_WINDOW
   object PURCHASE_INV: TButton
     Left = 96
     Top = 161
-    Width = 75
+    Width = 113
     Height = 25
     Caption = 'PURCHASE_INV'
     TabOrder = 1
+    OnClick = PURCHASE_INVClick
   end
   object PRODUCTS: TButton
     Left = 96

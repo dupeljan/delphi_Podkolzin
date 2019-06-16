@@ -64,7 +64,7 @@ object product_add_form: Tproduct_add_form
   end
   object DataSource1: TDataSource
     DataSet = dm.TProvider
-    Left = 440
-    Top = 104
+    Left = 616
+    Top = 32
   end
 end

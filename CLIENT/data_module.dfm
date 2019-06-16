@@ -20,6 +20,7 @@ object dm: Tdm
     Top = 56
   end
   object IBTransaction1: TIBTransaction
+    Active = True
     DefaultDatabase = my_database
     Left = 176
     Top = 56
@@ -90,8 +91,8 @@ object dm: Tdm
     CachedUpdates = False
     TableName = 'PRODUCT'
     UniDirectional = False
-    Left = 432
-    Top = 152
+    Left = 424
+    Top = 176
   end
   object spAddProduct: TIBStoredProc
     Database = my_database
@@ -149,6 +150,49 @@ object dm: Tdm
       item
         DataType = ftInteger
         Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object TPurchase_inv: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'PURCHASE_INV'
+    UniDirectional = False
+    Left = 56
+    Top = 344
+  end
+  object spAddPurchase_inv: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_PURCHASE_INV'
+    Left = 48
+    Top = 424
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'OUT_ID'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRICE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_COUNT'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
         ParamType = ptInput
       end>
   end

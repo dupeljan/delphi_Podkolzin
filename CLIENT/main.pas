@@ -15,6 +15,7 @@ type
     DAYLY_INCOME: TButton;
     procedure PROVIDERSClick(Sender: TObject);
     procedure PRODUCTSClick(Sender: TObject);
+    procedure PURCHASE_INVClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,7 +29,7 @@ implementation
 
 {$R *.dfm}
 
-uses providers_window, product_window;
+uses providers_window, product_window, purchase_inv_window;
 
 procedure TMAIN_WINDOW.PRODUCTSClick(Sender: TObject);
 begin
@@ -38,6 +39,11 @@ end;
 procedure TMAIN_WINDOW.PROVIDERSClick(Sender: TObject);
 begin
   PROVIDERS_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.PURCHASE_INVClick(Sender: TObject);
+begin
+    PURCHASE_INV_FORM.ShowModal;
 end;
 
 end.

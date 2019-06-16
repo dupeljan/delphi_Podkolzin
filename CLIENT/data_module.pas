@@ -18,6 +18,8 @@ type
     spAddProduct: TIBStoredProc;
     spDeleteProduct: TIBStoredProc;
     spEditProduct: TIBStoredProc;
+    TPurchase_inv: TIBTable;
+    spAddPurchase_inv: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
