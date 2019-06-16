@@ -49,23 +49,23 @@ begin
   begin
 
     // Fill db procedure parametrs with form valut
-    dm.spAddProduct.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
-    dm.spAddProduct.ParamByName('IN_MAJOR').Value:= 1;
-    dm.spAddProduct.ParamByName('IN_VAT').Value:= 2;
+    dm.spAddProvider.ParamByName('IN_NAME                        ').AsString:= provider_add_form.labelEdit_name.Text;
+    //dm.spAddProvider.ParamByName('IN_MAJOR').Value:= 1;
+    //dm.spAddProvider.ParamByName('IN_VAT').Value:= 2;
 
 
     // Execute the procedure
-    if not dm.spAddProduct.Transaction.InTransaction then
-      dm.spAddProduct.Transaction.StartTransaction;
-    dm.spAddProduct.ExecProc;
+    if not dm.spAddProvider.Transaction.InTransaction then
+      dm.spAddProvider.Transaction.StartTransaction;
+    dm.spAddProvider.ExecProc;
 
     // Got result from bd procedure
-    id:=dm.spAddProduct.ParamByName('OUT_ID').AsInteger;
-    dm.spAddProduct.Transaction.Commit;
+    id:=dm.spAddProvider.ParamByName('OUT_ID').AsInteger;
+    dm.spAddProvider.Transaction.Commit;
 
     //  Set TProduct table and grid position
-    dm.TProduct.Open;
-    dm.TProduct.Locate('ID',id,[]);
+    dm.TProvider.Open;
+    dm.TProvider.Locate('ID',id,[]);
   end;
   // Release add form
   provider_add_form.Release;
@@ -75,21 +75,21 @@ end;
 procedure TPROVIDERS_FORM.DELETEClick(Sender: TObject);
 begin
   // Create dialog window
-  if MessageDlg('kill '+dm.tProduct.FieldByName('NAME').AsString+'?',
+  if MessageDlg('kill '+dm.TProvider.FieldByName('NAME').AsString+'?',
                 mtConfirmation,[mbYes,mbNo],0)=mrYes then
   begin
 
     // Receve id from grid
-    dm.spDeleteProduct.ParamByName('IN_ID').Value:=dm.tProduct.FieldByName('ID').Value;
+    dm.spDeleteProvider.ParamByName('IN_ID').Value:=dm.TProvider.FieldByName('ID').Value;
 
     // Execute the procedure
-    if not(dm.spDeleteProduct.Transaction.InTransaction) then
-        dm.spDeleteProduct.Transaction.StartTransaction;
-    dm.spDeleteProduct.ExecProc;
-    dm.spDeleteProduct.Transaction.Commit;
+    if not(dm.spDeleteProvider.Transaction.InTransaction) then
+        dm.spDeleteProvider.Transaction.StartTransaction;
+    dm.spDeleteProvider.ExecProc;
+    dm.spDeleteProvider.Transaction.Commit;
 
     // Reopen table
-    dm.tProduct.Open;
+    dm.TProvider.Open;
   end;
 end;
 
@@ -106,7 +106,7 @@ begin
   provider_add_form:= Tprovider_add_form.Create(Application);
 
   // Fill from from table
-  provider_add_form.labelEdit_name.Text :=  dm.tProduct.FieldByName('NAME').AsString;
+  provider_add_form.labelEdit_name.Text :=  dm.TProvider.FieldByName('NAME').AsString;
 
   // Show form
   provider_add_form.ShowModal;
@@ -115,25 +115,25 @@ begin
   if provider_add_form.ModalResult=mrOk then
     begin
         // Fill db procedure parametrs with form valut
-        dm.spEditProduct.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
-        dm.spEditProduct.ParamByName('IN_MAJOR').Value:= 1;
-        dm.spEditProduct.ParamByName('IN_VAT').Value:= 2;
-        dm.spEditProduct.ParamByName('IN_ID').Value:= dm.TProduct.FieldByName('ID').AsInteger;
+        dm.spEditprovider.ParamByName('IN_NAME').AsString:= provider_add_form.labelEdit_name.Text;
+        //dm.spEditProvider.ParamByName('IN_MAJOR').Value:= 1;
+        //dm.spEditProvider.ParamByName('IN_VAT').Value:= 2;
+        dm.spEditProvider.ParamByName('IN_ID').Value:= dm.TProvider.FieldByName('ID').AsInteger;
 
 
         // Execute the procedure
-        if not dm.spEditProduct.Transaction.InTransaction then
-          dm.spEditProduct.Transaction.StartTransaction;
-        dm.spEditProduct.ExecProc;
+        if not dm.spEditProvider.Transaction.InTransaction then
+          dm.spEditProvider.Transaction.StartTransaction;
+        dm.spEditProvider.ExecProc;
 
         // Got result from table
-        id:= dm.TProduct.FieldByName('ID').AsInteger;
+        id:= dm.TProvider.FieldByName('ID').AsInteger;
 
-        dm.spAddProduct.Transaction.Commit;
+        dm.spEditProvider.Transaction.Commit;
 
         //  Set TProduct table and grid position
-        dm.TProduct.Open;
-        dm.TProduct.Locate('ID',id,[]);
+        dm.TProvider.Open;
+        dm.TProvider.Locate('ID',id,[]);
     end;
   provider_add_form.Release;
 

@@ -48,7 +48,7 @@ object PROVIDERS_FORM: TPROVIDERS_FORM
     end
   end
   object DataSource1: TDataSource
-    DataSet = dm.TProduct
+    DataSet = dm.TProvider
     Left = 112
     Top = 128
   end

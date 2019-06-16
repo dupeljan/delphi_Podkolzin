@@ -10,9 +10,10 @@ type
   Tdm = class(TDataModule)
     my_database: TIBDatabase;
     IBTransaction1: TIBTransaction;
-    spAddProduct: TIBStoredProc;
-    TProduct: TIBTable;
-    spDeleteProduct: TIBStoredProc;
+    spAddProvider: TIBStoredProc;
+    TProvider: TIBTable;
+    spDeleteProvider: TIBStoredProc;
+    spEditProvider: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
@@ -33,7 +34,7 @@ implementation
 procedure Tdm.DataModuleCreate(Sender: TObject);
 begin
     my_database.Open;
-    tProduct.Open;
+    tProvider.Open;
 end;
 
 procedure Tdm.DataModuleDestroy(Sender: TObject);
