@@ -254,25 +254,20 @@ object dm: Tdm
     CachedUpdates = False
     TableName = 'DAILY_INCOME'
     UniDirectional = False
-    Left = 584
+    Left = 592
     Top = 336
   end
   object spAddDaily_income: TIBStoredProc
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'ADD_DAILY_INCOME'
-    Left = 584
-    Top = 408
+    Left = 600
+    Top = 416
     ParamData = <
       item
         DataType = ftInteger
-        Name = 'IN_PRODUCT_ID'
-        ParamType = ptInput
-      end
-      item
-        DataType = ftInteger
-        Name = 'IN_PRODUCT_COUNT'
-        ParamType = ptInput
+        Name = 'OUT_ID'
+        ParamType = ptOutput
       end
       item
         DataType = ftDate
@@ -281,8 +276,13 @@ object dm: Tdm
       end
       item
         DataType = ftInteger
-        Name = 'OUT_ID'
-        ParamType = ptOutput
+        Name = 'IN_PRODUCT_COUNT'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
       end>
   end
 end
