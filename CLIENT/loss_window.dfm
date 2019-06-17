@@ -29,7 +29,7 @@ object loss_form: Tloss_form
     TitleFont.Style = []
   end
   object DataSource1: TDataSource
-    DataSet = dm.TLoss
+    DataSet = dm.QLoss_pretty
     Left = 424
     Top = 144
   end

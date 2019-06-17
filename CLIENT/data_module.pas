@@ -26,6 +26,8 @@ type
     TDaily_income: TIBTable;
     spAddDaily_income: TIBStoredProc;
     QPurchase_inv_pretty: TIBQuery;
+    QLoss_pretty: TIBQuery;
+    QDaily_income_pretty: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure update_all();
@@ -61,6 +63,8 @@ begin
   dm.TLoss.Close;
   dm.TDaily_income.close;
   dm.QPurchase_inv_pretty.Close;
+  dm.QLoss_pretty.Close;
+  dm.QDaily_income_pretty.Close;
 
    dm.TProvider.Open;
   dm.TProduct.Open;
@@ -68,5 +72,7 @@ begin
   dm.TLoss.open;
   dm.TDaily_income.open;
   dm.QPurchase_inv_pretty.open;
+  dm.QLoss_pretty.Open;
+  dm.QDaily_income_pretty.Open;
 end;
 end.

@@ -29,7 +29,7 @@ object DAILY_INCOME_FORM: TDAILY_INCOME_FORM
     TitleFont.Style = []
   end
   object DataSource1: TDataSource
-    DataSet = dm.TDaily_income
+    DataSet = dm.QDaily_income_pretty
     Left = 192
     Top = 88
   end

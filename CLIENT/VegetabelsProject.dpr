@@ -13,7 +13,8 @@ uses
   loss_window in 'loss_window.pas' {loss_form},
   loss_add in 'loss_add.pas' {loss_add_form},
   daily_income_window in 'daily_income_window.pas' {DAILY_INCOME_FORM},
-  daily_income_add in 'daily_income_add.pas' {daily_income_add_form};
+  daily_income_add in 'daily_income_add.pas' {daily_income_add_form},
+  WordExelReport in 'WordExelReport.pas';
 
 {$R *.res}
 

@@ -292,7 +292,9 @@ object dm: Tdm
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select provider.name as provider_name,'
+      'select '
+      'purchase_inv.id as id,'
+      'provider.name as provider_name,'
       '       product.name as product_name,'
       '       purchase_inv.the_date as the_date,'
       '       purchase_inv.product_count as product_count,'
@@ -303,7 +305,49 @@ object dm: Tdm
       
         '          join purchase_inv on product.id =  purchase_inv.produc' +
         't_id;')
-    Left = 528
-    Top = 64
+    Left = 416
+    Top = 56
+  end
+  object QLoss_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '       loss.id as id,'
+      '       provider.name as provider_name,'
+      '       product.name as product_name,'
+      '       loss.the_date as the_date,'
+      '       loss.product_count as product_count'
+      
+        '          from provider join product on provider.id = product.pr' +
+        'ovider_id'
+      '          join loss on product.id = loss.product_id;')
+    Left = 504
+    Top = 56
+  end
+  object QDaily_income_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '       daily_income.id as id,'
+      '       provider.name as provider_name,'
+      '       product.name as product_name,'
+      '       daily_income.the_date as the_date,'
+      '       daily_income.product_count as product_count'
+      
+        '          from provider join product on provider.id = product.pr' +
+        'ovider_id'
+      
+        '          join daily_income on product.id = daily_income.product' +
+        '_id;')
+    Left = 600
+    Top = 56
   end
 end

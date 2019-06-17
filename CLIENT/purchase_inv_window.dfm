@@ -42,6 +42,7 @@ object purchase_inv_form: Tpurchase_inv_form
     end
     object EXPORT_DOCX: TMenuItem
       Caption = 'EXPORT_DOCX'
+      OnClick = EXPORT_DOCXClick
     end
   end
 end

@@ -16,6 +16,7 @@ type
     EXPORT_DOCX: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ADDClick(Sender: TObject);
+    procedure EXPORT_DOCXClick(Sender: TObject);
     //procedure DELETEClick(Sender: TObject);
   private
     { Private declarations }
@@ -93,6 +94,11 @@ begin
   end;
 end;
  }
+procedure Tpurchase_inv_form.EXPORT_DOCXClick(Sender: TObject);
+begin
+  create_invoice('Purchase_inv');
+end;
+
 procedure Tpurchase_inv_form.FormCreate(Sender: TObject);
 begin
   dm.update_all;

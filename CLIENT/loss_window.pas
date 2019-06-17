@@ -60,7 +60,7 @@ begin
 
     //  Set TProduct table and grid position
     dm.update_all;
-    dm.TLoss.Locate('ID',id,[]);
+    dm.QLoss_pretty.Locate('ID',id,[]);
   end;
   // Release add form
   loss_add_form.Release;
