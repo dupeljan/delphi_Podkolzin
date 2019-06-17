@@ -13,11 +13,13 @@ var
  title,text : string;
  MS_Word: Variant;
 begin
-  if str = 'Daily_income' then begin
+  if str = 'Purchase_inv' then begin
     title := 'Приходная накладная';
-    text := 'Товар ' + dm.TDaily_income.FieldByName('PRODUCT_ID').AsString +
-            ' в количестве ' + dm.TDaily_income.FieldByName('PRODUCT_COUNT').AsString +
-            ' шт. получен ' + dm.TDaily_income.FieldByName('THE_DATE').AsString + '.';
+    text := 'Производитель ' + dm.QPurchase_inv_pretty.FieldByName('PROVIDER_NAME').AsString +
+      ' поставил товар ' + dm.QPurchase_inv_pretty.FieldByName('PRODUCT_NAME').AsString +
+            ' в количестве ' + dm.QPurchase_inv_pretty.FieldByName('PRODUCT_COUNT').AsString +
+            ' шт. по цене ' + dm.QPurchase_inv_pretty.FieldByName('PRICE').AsString +
+            ' руб. Дата поставки: ' + dm.QPurchase_inv_pretty.FieldByName('THE_DATE').AsString + '.';
   end;
 
   try

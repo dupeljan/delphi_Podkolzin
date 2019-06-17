@@ -13,6 +13,7 @@ type
     DataSource1: TDataSource;
     MainMenu1: TMainMenu;
     ADD: TMenuItem;
+    EXPORT_DOCX: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ADDClick(Sender: TObject);
     //procedure DELETEClick(Sender: TObject);
@@ -28,7 +29,7 @@ var
 implementation
 
 {$R *.dfm}
-uses data_module, purchase_inv_add;
+uses data_module, purchase_inv_add, wordExelReport;
 procedure Tpurchase_inv_form.ADDClick(Sender: TObject);
 var id : integer;
 begin
@@ -62,8 +63,8 @@ begin
 
     //  Set TProduct table and grid position
     dm.update_all;
-    dm.TPurchase_inv.Open;
-    dm.TPurchase_inv.Locate('ID',id,[]);
+
+    dm.QPurchase_inv_pretty.Locate('ID',id,[]);
   end;
   // Release add form
   purchase_inv_add_form.Release;

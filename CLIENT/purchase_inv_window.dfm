@@ -29,7 +29,7 @@ object purchase_inv_form: Tpurchase_inv_form
     TitleFont.Style = []
   end
   object DataSource1: TDataSource
-    DataSet = dm.TPurchase_inv
+    DataSet = dm.QPurchase_inv_pretty
     Left = 312
     Top = 136
   end
@@ -39,6 +39,9 @@ object purchase_inv_form: Tpurchase_inv_form
     object ADD: TMenuItem
       Caption = 'ADD'
       OnClick = ADDClick
+    end
+    object EXPORT_DOCX: TMenuItem
+      Caption = 'EXPORT_DOCX'
     end
   end
 end

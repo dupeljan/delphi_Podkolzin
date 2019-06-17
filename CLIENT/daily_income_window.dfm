@@ -2,8 +2,8 @@ object DAILY_INCOME_FORM: TDAILY_INCOME_FORM
   Left = 0
   Top = 0
   Caption = 'DAILY_INCOME_FORM'
-  ClientHeight = 231
-  ClientWidth = 505
+  ClientHeight = 441
+  ClientWidth = 804
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object DAILY_INCOME_FORM: TDAILY_INCOME_FORM
   object DBGrid1: TDBGrid
     Left = -8
     Top = 0
-    Width = 513
-    Height = 233
+    Width = 809
+    Height = 441
     DataSource = DataSource1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET

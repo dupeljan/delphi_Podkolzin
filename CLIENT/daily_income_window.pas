@@ -62,7 +62,7 @@ begin
 
     //  Set TProduct table and grid position
     dm.update_all;
-    dm.TDaily_income.Locate('ID',id,[]);
+    dm.Tdaily_income.Locate('ID',id,[]);
   end;
   // Release add form
   loss_add_form.Release;
@@ -72,7 +72,7 @@ end;
 
 procedure TDAILY_INCOME_FORM.EXPORTDOCX1Click(Sender: TObject);
 begin
-     create_invoice('Daily_income');
+     //create_invoice('Daily_income');
 end;
 
 procedure TDAILY_INCOME_FORM.FormCreate(Sender: TObject);

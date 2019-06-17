@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, IBX.IBDatabase, IBX.IBTable,
-  IBX.IBCustomDataSet, IBX.IBStoredProc;
+  IBX.IBCustomDataSet, IBX.IBStoredProc, IBX.IBQuery;
 
 type
   Tdm = class(TDataModule)
@@ -25,6 +25,7 @@ type
     spAddLoss: TIBStoredProc;
     TDaily_income: TIBTable;
     spAddDaily_income: TIBStoredProc;
+    QPurchase_inv_pretty: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure update_all();
@@ -59,11 +60,13 @@ begin
   dm.TPurchase_inv.Close;
   dm.TLoss.Close;
   dm.TDaily_income.close;
+  dm.QPurchase_inv_pretty.Close;
 
    dm.TProvider.Open;
   dm.TProduct.Open;
   dm.TPurchase_inv.Open;
   dm.TLoss.open;
   dm.TDaily_income.open;
+  dm.QPurchase_inv_pretty.open;
 end;
 end.

@@ -285,4 +285,25 @@ object dm: Tdm
         ParamType = ptInput
       end>
   end
+  object QPurchase_inv_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select provider.name as provider_name,'
+      '       product.name as product_name,'
+      '       purchase_inv.the_date as the_date,'
+      '       purchase_inv.product_count as product_count,'
+      '       purchase_inv.price as price'
+      
+        '          from provider join product on provider.id = product.pr' +
+        'ovider_id'
+      
+        '          join purchase_inv on product.id =  purchase_inv.produc' +
+        't_id;')
+    Left = 528
+    Top = 64
+  end
 end
