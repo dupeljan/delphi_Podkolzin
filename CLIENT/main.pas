@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
 
 type
   TMAIN_WINDOW = class(TForm)
@@ -13,11 +13,13 @@ type
     PRODUCTS: TButton;
     LOSS: TButton;
     DAYLY_INCOME: TButton;
+    EXPORT_EXEL: TBitBtn;
     procedure PROVIDERSClick(Sender: TObject);
     procedure PRODUCTSClick(Sender: TObject);
     procedure PURCHASE_INVClick(Sender: TObject);
     procedure LOSSClick(Sender: TObject);
     procedure DAYLY_INCOMEClick(Sender: TObject);
+    procedure EXPORT_EXELClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,11 +34,16 @@ implementation
 {$R *.dfm}
 
 uses providers_window, product_window, purchase_inv_window, loss_window,
-  daily_income_window;
+  daily_income_window, WordExelReport;
 
 procedure TMAIN_WINDOW.DAYLY_INCOMEClick(Sender: TObject);
 begin
   DAILY_INCOME_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.EXPORT_EXELClick(Sender: TObject);
+begin
+  example_exel;
 end;
 
 procedure TMAIN_WINDOW.LOSSClick(Sender: TObject);

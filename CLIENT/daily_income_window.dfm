@@ -40,5 +40,9 @@ object DAILY_INCOME_FORM: TDAILY_INCOME_FORM
       Caption = 'ADD'
       OnClick = ADDClick
     end
+    object EXPORTDOCX1: TMenuItem
+      Caption = 'EXPORT_DOCX'
+      OnClick = EXPORTDOCX1Click
+    end
   end
 end

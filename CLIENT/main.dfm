@@ -2,7 +2,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   Left = 0
   Top = 0
   Caption = 'MAIN_WINDOW'
-  ClientHeight = 427
+  ClientHeight = 563
   ClientWidth = 307
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -57,5 +57,14 @@ object MAIN_WINDOW: TMAIN_WINDOW
     Caption = 'DAYLY_INCOME'
     TabOrder = 4
     OnClick = DAYLY_INCOMEClick
+  end
+  object EXPORT_EXEL: TBitBtn
+    Left = 40
+    Top = 376
+    Width = 193
+    Height = 65
+    Caption = 'EXPORT_EXEL'
+    TabOrder = 5
+    OnClick = EXPORT_EXELClick
   end
 end

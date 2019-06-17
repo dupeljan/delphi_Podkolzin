@@ -13,8 +13,10 @@ type
     DataSource1: TDataSource;
     MainMenu1: TMainMenu;
     ADD: TMenuItem;
+    EXPORTDOCX1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ADDClick(Sender: TObject);
+    procedure EXPORTDOCX1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +29,7 @@ var
 implementation
 
 {$R *.dfm}
-uses data_module,loss_add;
+uses data_module,loss_add, WordExelReport;
 procedure TDAILY_INCOME_FORM.ADDClick(Sender: TObject);
 var id : integer;
 begin
@@ -66,6 +68,11 @@ begin
   loss_add_form.Release;
 
 
+end;
+
+procedure TDAILY_INCOME_FORM.EXPORTDOCX1Click(Sender: TObject);
+begin
+     create_invoice('Daily_income');
 end;
 
 procedure TDAILY_INCOME_FORM.FormCreate(Sender: TObject);

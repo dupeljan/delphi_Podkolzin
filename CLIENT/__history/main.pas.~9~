@@ -1,0 +1,63 @@
+unit main;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TMAIN_WINDOW = class(TForm)
+    PROVIDERS: TButton;
+    PURCHASE_INV: TButton;
+    PRODUCTS: TButton;
+    LOSS: TButton;
+    DAYLY_INCOME: TButton;
+    EXPORT_EXEL: TBitBtn;
+    procedure PROVIDERSClick(Sender: TObject);
+    procedure PRODUCTSClick(Sender: TObject);
+    procedure PURCHASE_INVClick(Sender: TObject);
+    procedure LOSSClick(Sender: TObject);
+    procedure DAYLY_INCOMEClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MAIN_WINDOW: TMAIN_WINDOW;
+
+implementation
+
+{$R *.dfm}
+
+uses providers_window, product_window, purchase_inv_window, loss_window,
+  daily_income_window, WordExelReport;
+
+procedure TMAIN_WINDOW.DAYLY_INCOMEClick(Sender: TObject);
+begin
+  DAILY_INCOME_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.LOSSClick(Sender: TObject);
+begin
+  LOSS_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.PRODUCTSClick(Sender: TObject);
+begin
+  PRODUCT_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.PROVIDERSClick(Sender: TObject);
+begin
+  PROVIDERS_FORM.ShowModal;
+end;
+
+procedure TMAIN_WINDOW.PURCHASE_INVClick(Sender: TObject);
+begin
+    PURCHASE_INV_FORM.ShowModal;
+end;
+
+end.
