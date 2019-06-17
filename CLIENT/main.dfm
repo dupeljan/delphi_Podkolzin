@@ -2,8 +2,8 @@ object MAIN_WINDOW: TMAIN_WINDOW
   Left = 0
   Top = 0
   Caption = 'MAIN_WINDOW'
-  ClientHeight = 563
-  ClientWidth = 307
+  ClientHeight = 472
+  ClientWidth = 277
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

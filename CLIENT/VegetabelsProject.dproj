@@ -148,6 +148,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="WordExelReport.pas"/>
+        <DCCReference Include="purchase_inv_group.pas">
+            <Form>purchase_inv_group_form</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

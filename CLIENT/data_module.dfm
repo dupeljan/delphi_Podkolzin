@@ -350,4 +350,79 @@ object dm: Tdm
     Left = 600
     Top = 56
   end
+  object TPurchase_inv_group: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'PURCHASE_INV_GROUP'
+    UniDirectional = False
+    Left = 64
+    Top = 552
+  end
+  object spDeletePurcahse_inv_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'DELETE_PURCHASE_INV_GROUP'
+    Left = 152
+    Top = 632
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spAddPurchase_inv_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_PURCHASE_INV_GROUP'
+    Left = 48
+    Top = 632
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PURCHASE_INV_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_INV_NUMBER'
+        ParamType = ptInput
+      end>
+  end
+  object QPurchase_inv_group_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '    purchase_inv.id as id,'
+      '    provider.name as provider_name,'
+      '    product.name as product_name,'
+      '    purchase_inv.product_count as product_count,'
+      '    purchase_inv.price as price,'
+      '    purchase_inv.the_date as the_date'
+      ''
+      ''
+      ' from'
+      'product join provider on product.provider_id = provider.id'
+      'join'
+      'purchase_inv join purchase_inv_group on'
+      'purchase_inv.id = purchase_inv_group.purchase_inv_id'
+      ''
+      'on purchase_inv.product_id = product.id'
+      ''
+      'where purchase_inv_group.invoice_number =  :IN_PURCHASE_NUMBER;')
+    Left = 232
+    Top = 552
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PURCHASE_NUMBER'
+        ParamType = ptInput
+      end>
+  end
 end

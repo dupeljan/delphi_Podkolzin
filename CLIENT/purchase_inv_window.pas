@@ -30,7 +30,7 @@ var
 implementation
 
 {$R *.dfm}
-uses data_module, purchase_inv_add, wordExelReport;
+uses data_module, purchase_inv_add, wordExelReport, purchase_inv_group;
 procedure Tpurchase_inv_form.ADDClick(Sender: TObject);
 var id : integer;
 begin
@@ -96,7 +96,8 @@ end;
  }
 procedure Tpurchase_inv_form.EXPORT_DOCXClick(Sender: TObject);
 begin
-  create_invoice('Purchase_inv');
+  purchase_inv_group_form.ShowModal;
+  //create_invoice('Purchase_inv');
 end;
 
 procedure Tpurchase_inv_form.FormCreate(Sender: TObject);
