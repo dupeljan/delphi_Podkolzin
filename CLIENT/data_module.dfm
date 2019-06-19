@@ -429,8 +429,8 @@ object dm: Tdm
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'GET_PRICE'
-    Left = 296
-    Top = 448
+    Left = 472
+    Top = 808
     ParamData = <
       item
         DataType = ftInteger
@@ -596,6 +596,63 @@ object dm: Tdm
         DataType = ftInteger
         Name = 'IN_PURCHASE_NUMBER'
         ParamType = ptInput
+      end>
+  end
+  object QGetProvider_products: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select id, name as product_name from product where provider_id =' +
+        ' :IN_PROVIDER_ID;')
+    Left = 400
+    Top = 736
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spGetCount: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'GET_PRODUCT_COUNT'
+    Left = 384
+    Top = 808
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_PURCH'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_LOSS'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_DAILY_INCOME'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_COUNT'
+        ParamType = ptOutput
       end>
   end
 end

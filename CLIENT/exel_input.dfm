@@ -28,7 +28,7 @@ object exel_input_form: Texel_input_form
     Height = 13
     Caption = 'TO'
   end
-  object DateTimePicker1: TDateTimePicker
+  object DateFrom: TDateTimePicker
     Left = 96
     Top = 72
     Width = 186
@@ -37,7 +37,7 @@ object exel_input_form: Texel_input_form
     Time = 0.976912291669577800
     TabOrder = 0
   end
-  object DateTimePicker2: TDateTimePicker
+  object DateTo: TDateTimePicker
     Left = 96
     Top = 136
     Width = 186
@@ -66,6 +66,7 @@ object exel_input_form: Texel_input_form
     Height = 25
     Caption = 'EXPORT_EXEL'
     TabOrder = 3
+    OnClick = EXPORT_EXELClick
   end
   object DataSource1: TDataSource
     DataSet = dm.TProvider

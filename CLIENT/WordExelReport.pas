@@ -9,7 +9,7 @@ procedure create_daily_income();
 procedure create_exel();
 
 implementation
-uses comObj, data_module,  sysutils,wordXP, excelXP;
+uses comObj, data_module,  sysutils,wordXP, excelXP, exel_input;
 
 procedure create_daily_income();
  var
@@ -321,8 +321,152 @@ end;
 
 
 procedure create_exel();
+Var Ap : Variant;
+  i, j,hight, price_before,price_after, count_before, count_after, purch_before,
+  purch_after, sell_before,sell_after, loss_before, loss_after, d_income_before,
+  d_income_after: integer;
 begin
+  Ap := CreateOleObject('Excel.Application');
+  Ap.Workbooks.Add;
+  Ap.Range['B1'] := 'Производитель - ' + dm.TProvider.FieldByName('NAME').asString;
+  Ap.Range['B2'] := 'Начало периода';
+  Ap.Range['C2'] := DateTimeToStr(exel_input_form.DateFrom.Date);
+  Ap.Range['D2'] := 'Конец периода - ';
+  Ap.Range['E2'] := DateTimeToStr(exel_input_form.DateTo.Date);
+  Ap.Range['B3;D3'] := 'Кол-во товара';
+  Ap.Range['C3;E3'] := 'Сумма остатков';
+  Ap.Range['F2'] := 'За период';
+  Ap.Range['F3'] := 'Получили товаров';
+  Ap.Range['G3'] := 'Продали товара';
+  Ap.Range['H3'] := 'Списали товара';
+  Ap.Range['A3'] := 'Товары:';
 
+  // Находим все товары производителя
+  dm.QGetProvider_products.ParamByName('IN_PROVIDER_ID').Value :=
+  dm.TProvider.FieldByName('ID').Value;
+  dm.update_all;
+  dm.QGetProvider_products.Last;
+  hight :=    dm.QGetProvider_products.RecordCount;
+  dm.QGetProvider_products.First;
+  for i := 0 to hight-1 do begin
+
+    // exec get_count
+    dm.spGetCount.ParamByName('IN_PRODUCT_ID').Value :=
+    dm.QGetProvider_products.FieldByName('ID').Value;
+
+    dm.spGetCount.ParamByName('IN_DATE').Value :=
+    exel_input_form.DateFrom.Date;
+
+    if not dm.spGetCount.Transaction.InTransaction then
+          dm.spGetCount.Transaction.StartTransaction;
+        dm.spGetCount.ExecProc;
+
+        // Got result from bd procedure
+        count_before :=dm.spGetCount.ParamByName('OUT_COUNT').AsInteger;
+        purch_before :=dm.spGetCount.ParamByName('OUT_PURCH').AsInteger;
+        loss_before := dm.spGetCount.ParamByName('OUT_LOSS').AsInteger;
+        sell_before := dm.spGetCount.ParamByName('OUT_DAILY_INCOME').AsInteger;
+        dm.spGetCount.Transaction.Commit;
+
+    // end exec get_count
+    dm.update_all;
+
+    dm.QGetProvider_products.first;
+    for j := 0 to i-1 do
+        dm.QGetProvider_products.Next;
+
+    // exec get_price
+    dm.spGetPrice.ParamByName('IN_PRODUCT_ID').Value:=
+       dm.QGetProvider_products.FieldByName('ID').Value;
+
+      dm.spGetPrice.ParamByName('IN_DATE').Value :=
+      exel_input_form.DateFrom.Date;
+
+        // Execute the procedure
+        if not dm.spGetPrice.Transaction.InTransaction then
+          dm.spGetPrice.Transaction.StartTransaction;
+        dm.spGetPrice.ExecProc;
+
+        // Got result from bd procedure
+        price_before:=dm.spGetPrice.ParamByName('OUT_PRICE').AsInteger;
+        dm.spGetPrice.Transaction.Commit;
+
+
+    // end get_price
+
+    dm.update_all;
+
+    dm.QGetProvider_products.first;
+    for j := 0 to i-1 do
+        dm.QGetProvider_products.Next;
+
+
+    ap.Range[ 'A' + inttostr(i+4)] := dm.QGetProvider_products.FieldByName('PRODUCT_NAME').AsString;
+    ap.Range[ 'B' + inttostr(i+4)] := count_before;
+    ap.Range[ 'C' + inttostr(i+4)] := count_before * price_before;
+
+
+    // exec get_count
+    dm.spGetCount.ParamByName('IN_PRODUCT_ID').Value :=
+    dm.QGetProvider_products.FieldByName('ID').Value;
+
+    dm.spGetCount.ParamByName('IN_DATE').Value :=
+    exel_input_form.DateTo.Date;
+
+    if not dm.spGetCount.Transaction.InTransaction then
+          dm.spGetCount.Transaction.StartTransaction;
+        dm.spGetCount.ExecProc;
+
+        // Got result from bd procedure
+        count_after :=dm.spGetCount.ParamByName('OUT_COUNT').AsInteger;
+        purch_after :=dm.spGetCount.ParamByName('OUT_PURCH').AsInteger;
+        loss_after := dm.spGetCount.ParamByName('OUT_LOSS').AsInteger;
+        sell_after := dm.spGetCount.ParamByName('OUT_DAILY_INCOME').AsInteger;
+        dm.spGetCount.Transaction.Commit;
+
+    // end exec get_count
+    dm.update_all;
+
+    dm.QGetProvider_products.first;
+    for j := 0 to i-1 do
+        dm.QGetProvider_products.Next;
+
+    // exec get_price
+    dm.spGetPrice.ParamByName('IN_PRODUCT_ID').Value:=
+       dm.QGetProvider_products.FieldByName('ID').Value;
+
+      dm.spGetPrice.ParamByName('IN_DATE').Value :=
+      exel_input_form.DateTo.Date;
+
+        // Execute the procedure
+        if not dm.spGetPrice.Transaction.InTransaction then
+          dm.spGetPrice.Transaction.StartTransaction;
+        dm.spGetPrice.ExecProc;
+
+        // Got result from bd procedure
+        price_after:=dm.spGetPrice.ParamByName('OUT_PRICE').AsInteger;
+        dm.spGetPrice.Transaction.Commit;
+
+
+    // end get_price
+
+    dm.update_all;
+
+    dm.QGetProvider_products.first;
+    for j := 0 to i-1 do
+        dm.QGetProvider_products.Next;
+
+    ap.Range[ 'D' + inttostr(i+4)] := count_after;
+    ap.Range[ 'E' + inttostr(i+4)] := count_after * price_after;
+    ap.Range[ 'F' + inttostr(i+4)] := purch_after - purch_before;
+    ap.Range[ 'G' + inttostr(i+4)] := sell_after - sell_before;
+    ap.Range[ 'H' + inttostr(i+4)] := loss_after - loss_before;
+    dm.QGetProvider_products.Next;
+  end;
+
+  
+  Ap.DisplayAlerts := False;
+  Ap.Visible := True;
 end;
 
 end.
