@@ -17,7 +17,8 @@ uses
   WordExelReport in 'WordExelReport.pas',
   purchase_inv_group in 'purchase_inv_group.pas' {purchase_inv_group_form},
   loss_group in 'loss_group.pas' {loss_group_form},
-  daily_income_group in 'daily_income_group.pas' {daily_income_group_form};
+  daily_income_group in 'daily_income_group.pas' {daily_income_group_form},
+  exel_input in 'exel_input.pas' {exel_input_form};
 
 {$R *.res}
 
@@ -39,5 +40,6 @@ begin
   Application.CreateForm(Tpurchase_inv_group_form, purchase_inv_group_form);
   Application.CreateForm(Tloss_group_form, loss_group_form);
   Application.CreateForm(Tdaily_income_group_form, daily_income_group_form);
+  Application.CreateForm(Texel_input_form, exel_input_form);
   Application.Run;
 end.

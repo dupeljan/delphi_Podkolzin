@@ -34,7 +34,7 @@ implementation
 {$R *.dfm}
 
 uses providers_window, product_window, purchase_inv_window, loss_window,
-  daily_income_window, WordExelReport;
+  daily_income_window, WordExelReport, exel_input;
 
 procedure TMAIN_WINDOW.DAYLY_INCOMEClick(Sender: TObject);
 begin
@@ -43,7 +43,7 @@ end;
 
 procedure TMAIN_WINDOW.EXPORT_EXELClick(Sender: TObject);
 begin
-  example_exel;
+  exel_input_form.ShowModal;
 end;
 
 procedure TMAIN_WINDOW.LOSSClick(Sender: TObject);

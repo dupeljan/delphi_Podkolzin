@@ -6,6 +6,7 @@ procedure example_exel();
 procedure create_invoice(str :string);
 procedure create_loss();
 procedure create_daily_income();
+procedure create_exel();
 
 implementation
 uses comObj, data_module,  sysutils,wordXP, excelXP;
@@ -317,4 +318,11 @@ begin
   Ap.DisplayAlerts := False;
   Ap.Visible := True;
 end;
+
+
+procedure create_exel();
+begin
+
+end;
+
 end.
