@@ -32,6 +32,15 @@ type
     spDeletePurcahse_inv_group: TIBStoredProc;
     spAddPurchase_inv_group: TIBStoredProc;
     QPurchase_inv_group_pretty: TIBQuery;
+    spGetPrice: TIBStoredProc;
+    TLoss_group: TIBTable;
+    spAddLoss_group: TIBStoredProc;
+    spDeleteLoss_group: TIBStoredProc;
+    QLoss_group_pretty: TIBQuery;
+    TDaily_income_group: TIBTable;
+    spAddDaily_income_group: TIBStoredProc;
+    spDeleteDaily_income_group: TIBStoredProc;
+    QDaily_income_group_pretty: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure update_all();
@@ -71,6 +80,10 @@ begin
   dm.QDaily_income_pretty.Close;
   dm.TPurchase_inv_group.Close;
   dm.QPurchase_inv_group_pretty.Close;
+  dm.TLoss_group.Close;
+  dm.QLoss_group_pretty.Close;
+  dm.TDaily_income_group.Close;
+  dm.QDaily_income_group_pretty.Close;
 
    dm.TProvider.Open;
   dm.TProduct.Open;
@@ -82,5 +95,9 @@ begin
   dm.QDaily_income_pretty.Open;
   dm.TPurchase_inv_group.Open;
   dm.QPurchase_inv_group_pretty.Open;
+  dm.TLoss_group.open;
+  dm.QLoss_group_pretty.open;
+  dm.TDaily_income_group.open;
+  dm.QDaily_income_group_pretty.open;
 end;
 end.

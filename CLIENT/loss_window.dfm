@@ -40,5 +40,9 @@ object loss_form: Tloss_form
       Caption = 'ADD'
       OnClick = ADDClick
     end
+    object EXPORT_DOCX: TMenuItem
+      Caption = 'EXPORT_DOCX'
+      OnClick = EXPORT_DOCXClick
+    end
   end
 end

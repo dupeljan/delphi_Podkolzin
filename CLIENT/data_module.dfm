@@ -305,7 +305,7 @@ object dm: Tdm
       
         '          join purchase_inv on product.id =  purchase_inv.produc' +
         't_id;')
-    Left = 416
+    Left = 424
     Top = 56
   end
   object QLoss_pretty: TIBQuery
@@ -418,6 +418,179 @@ object dm: Tdm
       'where purchase_inv_group.invoice_number =  :IN_PURCHASE_NUMBER;')
     Left = 232
     Top = 552
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PURCHASE_NUMBER'
+        ParamType = ptInput
+      end>
+  end
+  object spGetPrice: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'GET_PRICE'
+    Left = 296
+    Top = 448
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_PRICE'
+        ParamType = ptOutput
+      end>
+  end
+  object TLoss_group: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'LOSS_GROUP'
+    UniDirectional = False
+    Left = 416
+    Top = 552
+  end
+  object spAddLoss_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_LOSS_GROUP'
+    Left = 408
+    Top = 632
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_INVOICE_NUMBER'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_LOSS_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spDeleteLoss_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'DELETE_LOSS_GROUP'
+    Left = 520
+    Top = 640
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object QLoss_group_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '    loss_group.id as id,'
+      '    product.id as PRODUCT_ID,'
+      '    provider.name as provider_name,'
+      '    product.name as product_name,'
+      '    loss.product_count as product_count,'
+      '    loss.the_date as the_date'
+      ''
+      ''
+      ' from'
+      'product join provider on product.provider_id = provider.id'
+      'join'
+      'loss join loss_group on'
+      'loss.id = loss_group.loss_id'
+      ''
+      'on loss.product_id = product.id'
+      ''
+      'where loss_group.INVOICE_NUMBER =  :IN_PURCHASE_NUMBER;')
+    Left = 560
+    Top = 560
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PURCHASE_NUMBER'
+        ParamType = ptInput
+      end>
+  end
+  object TDaily_income_group: TIBTable
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    TableName = 'DAILY_INCOME_GROUP'
+    UniDirectional = False
+    Left = 56
+    Top = 728
+  end
+  object spAddDaily_income_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'ADD_DAILY_INCOME_GROUP'
+    Left = 56
+    Top = 800
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_INVOICE_NUMBER'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'IN_DAILY_INCOME_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spDeleteDaily_income_group: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'DELETE_DAILY_INCOME_GROUP'
+    Left = 160
+    Top = 800
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object QDaily_income_group_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '    daily_income_group.id as id,'
+      '    product.id as PRODUCT_ID,'
+      '    provider.name as provider_name,'
+      '    product.name as product_name,'
+      '    daily_income.product_count as product_count,'
+      '    daily_income.the_date as the_date'
+      ''
+      ''
+      ' from'
+      'product join provider on product.provider_id = provider.id'
+      'join'
+      'daily_income join daily_income_group on'
+      'daily_income.id = daily_income_group.daily_income_id'
+      ''
+      'on daily_income.product_id = product.id'
+      ''
+      'where daily_income_group.INVOICE_NUMBER =  :IN_PURCHASE_NUMBER;')
+    Left = 168
+    Top = 728
     ParamData = <
       item
         DataType = ftInteger

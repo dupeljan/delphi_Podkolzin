@@ -29,7 +29,7 @@ var
 implementation
 
 {$R *.dfm}
-uses data_module,loss_add, WordExelReport;
+uses data_module,loss_add, WordExelReport, daily_income_group;
 procedure TDAILY_INCOME_FORM.ADDClick(Sender: TObject);
 var id : integer;
 begin
@@ -72,6 +72,7 @@ end;
 
 procedure TDAILY_INCOME_FORM.EXPORTDOCX1Click(Sender: TObject);
 begin
+    daily_income_group_form.ShowModal;
      //create_invoice('Daily_income');
 end;
 

@@ -1,0 +1,24 @@
+unit loss_group;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  Tloss_group_form = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  loss_group_form: Tloss_group_form;
+
+implementation
+
+{$R *.dfm}
+
+end.

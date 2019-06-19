@@ -13,8 +13,10 @@ type
     DataSource1: TDataSource;
     MainMenu1: TMainMenu;
     ADD: TMenuItem;
+    EXPORT_DOCX: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ADDClick(Sender: TObject);
+    procedure EXPORT_DOCXClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +29,7 @@ var
 implementation
 
 {$R *.dfm}
- uses data_module, loss_add;
+ uses data_module, loss_add, loss_group;
 procedure Tloss_form.ADDClick(Sender: TObject);
 var id : integer;
 begin
@@ -65,6 +67,11 @@ begin
   // Release add form
   loss_add_form.Release;
 
+end;
+
+procedure Tloss_form.EXPORT_DOCXClick(Sender: TObject);
+begin
+  loss_group_form.ShowModal;
 end;
 
 procedure Tloss_form.FormCreate(Sender: TObject);

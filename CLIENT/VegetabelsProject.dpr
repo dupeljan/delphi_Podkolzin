@@ -15,7 +15,9 @@ uses
   daily_income_window in 'daily_income_window.pas' {DAILY_INCOME_FORM},
   daily_income_add in 'daily_income_add.pas' {daily_income_add_form},
   WordExelReport in 'WordExelReport.pas',
-  purchase_inv_group in 'purchase_inv_group.pas' {purchase_inv_group_form};
+  purchase_inv_group in 'purchase_inv_group.pas' {purchase_inv_group_form},
+  loss_group in 'loss_group.pas' {loss_group_form},
+  daily_income_group in 'daily_income_group.pas' {daily_income_group_form};
 
 {$R *.res}
 
@@ -35,5 +37,7 @@ begin
   Application.CreateForm(TDAILY_INCOME_FORM, DAILY_INCOME_FORM);
   Application.CreateForm(Tdaily_income_add_form, daily_income_add_form);
   Application.CreateForm(Tpurchase_inv_group_form, purchase_inv_group_form);
+  Application.CreateForm(Tloss_group_form, loss_group_form);
+  Application.CreateForm(Tdaily_income_group_form, daily_income_group_form);
   Application.Run;
 end.

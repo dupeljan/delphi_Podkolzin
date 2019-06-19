@@ -1,0 +1,33 @@
+unit daily_income_group;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  Tdaily_income_group_form = class(TForm)
+    ADD: TButton;
+    CREATE_DOCX: TButton;
+    DELETE: TButton;
+    Ginv: TDBGrid;
+    Ginv_group: TDBGrid;
+    inv: TDataSource;
+    inv_group: TDataSource;
+    invoice_number: TLabeledEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  daily_income_group_form: Tdaily_income_group_form;
+
+implementation
+
+{$R *.dfm}
+ uses data_moudl;
+end.
