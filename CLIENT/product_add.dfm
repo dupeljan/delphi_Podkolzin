@@ -17,18 +17,26 @@ object product_add_form: Tproduct_add_form
   object LabelProvider: TLabel
     Left = 288
     Top = 37
-    Width = 40
+    Width = 56
     Height = 13
-    Caption = 'provider'
+    Caption = #1055#1056#1054#1044#1040#1042#1045#1062
+  end
+  object Label1: TLabel
+    Left = 88
+    Top = 37
+    Width = 22
+    Height = 13
+    Caption = #1048#1052#1071
   end
   object leName: TLabeledEdit
-    Left = 96
+    Left = 88
     Top = 64
     Width = 121
     Height = 21
     EditLabel.Width = 35
     EditLabel.Height = 13
     EditLabel.Caption = 'leName'
+    LabelSpacing = -8
     TabOrder = 0
   end
   object DBGrid1: TDBGrid

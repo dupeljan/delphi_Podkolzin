@@ -16,9 +16,16 @@ object loss_add_form: Tloss_add_form
   object Label1: TLabel
     Left = 120
     Top = 24
-    Width = 48
+    Width = 57
     Height = 13
-    Caption = 'PRODUCT'
+    Caption = #1055#1056#1054#1044#1059#1050#1058#1067
+  end
+  object Label2: TLabel
+    Left = 488
+    Top = 48
+    Width = 69
+    Height = 13
+    Caption = #1050#1054#1051#1048#1063#1045#1057#1058#1042#1054
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -41,6 +48,7 @@ object loss_add_form: Tloss_add_form
     EditLabel.Width = 37
     EditLabel.Height = 13
     EditLabel.Caption = 'leCount'
+    LabelSpacing = -10
     TabOrder = 1
   end
   object DateTimePicker1: TDateTimePicker

@@ -1,4 +1,4 @@
-object purchase_inv_add_form: Tpurchase_inv_add_form
+﻿object purchase_inv_add_form: Tpurchase_inv_add_form
   Left = 0
   Top = 0
   Caption = 'purchase_inv_add_form'
@@ -17,9 +17,23 @@ object purchase_inv_add_form: Tpurchase_inv_add_form
   object LProduct: TLabel
     Left = 80
     Top = 16
-    Width = 42
+    Width = 49
     Height = 13
-    Caption = 'LProduct'
+    Caption = #1055#1056#1054#1044#1059#1050#1058
+  end
+  object КОЛИЧЕСТВО: TLabel
+    Left = 291
+    Top = 34
+    Width = 69
+    Height = 13
+    Caption = #1050#1054#1051#1048#1063#1045#1057#1058#1042#1054
+  end
+  object Label2: TLabel
+    Left = 291
+    Top = 85
+    Width = 28
+    Height = 13
+    Caption = #1062#1045#1053#1040
   end
   object DBGrid1: TDBGrid
     Left = 24
@@ -42,6 +56,7 @@ object purchase_inv_add_form: Tpurchase_inv_add_form
     EditLabel.Width = 37
     EditLabel.Height = 13
     EditLabel.Caption = 'leCount'
+    LabelSpacing = -10
     TabOrder = 1
   end
   object leCost: TLabeledEdit
@@ -52,6 +67,7 @@ object purchase_inv_add_form: Tpurchase_inv_add_form
     EditLabel.Width = 30
     EditLabel.Height = 13
     EditLabel.Caption = 'leCost'
+    LabelSpacing = -10
     TabOrder = 2
   end
   object DateTimePicker1: TDateTimePicker
@@ -60,7 +76,7 @@ object purchase_inv_add_form: Tpurchase_inv_add_form
     Width = 186
     Height = 21
     Date = 43632.000000000000000000
-    Time = 0.602828634262550600
+    Time = 0.602828634262550700
     TabOrder = 3
   end
   object BitBtn1: TBitBtn

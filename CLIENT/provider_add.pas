@@ -11,6 +11,7 @@ type
     labelEdit_name: TLabeledEdit;
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
+    Label1: TLabel;
   private
     { Private declarations }
   public

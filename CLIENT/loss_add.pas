@@ -16,6 +16,7 @@ type
     DateTimePicker1: TDateTimePicker;
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
+    Label2: TLabel;
   private
     { Private declarations }
   public

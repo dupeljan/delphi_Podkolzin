@@ -37,11 +37,11 @@ object purchase_inv_form: Tpurchase_inv_form
     Left = 400
     Top = 112
     object ADD: TMenuItem
-      Caption = 'ADD'
+      Caption = #1044#1054#1041#1040#1042#1048#1058#1068
       OnClick = ADDClick
     end
     object EXPORT_DOCX: TMenuItem
-      Caption = 'EXPORT_DOCX'
+      Caption = #1069#1050#1057#1055#1054#1056#1058' '#1044#1054#1050#1057#1061
       OnClick = EXPORT_DOCXClick
     end
   end

@@ -17,6 +17,7 @@ type
     inv_group: TDataSource;
     invoice_number: TLabeledEdit;
     CREATE_DOCX: TButton;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure ADDClick(Sender: TObject);
     procedure DELETEClick(Sender: TObject);

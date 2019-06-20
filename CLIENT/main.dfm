@@ -18,7 +18,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
     Top = 33
     Width = 193
     Height = 80
-    Caption = 'PROVIDERS'
+    Caption = #1055#1054#1057#1058#1040#1042#1065#1048#1050#1048
     TabOrder = 0
     OnClick = PROVIDERSClick
   end
@@ -27,16 +27,16 @@ object MAIN_WINDOW: TMAIN_WINDOW
     Top = 169
     Width = 193
     Height = 64
-    Caption = 'PURCHASE_INV'
+    Caption = #1055#1056#1048#1061#1054#1044#1053#1040#1071' '#1053#1040#1050#1051#1040#1044#1053#1040#1071
     TabOrder = 1
     OnClick = PURCHASE_INVClick
   end
   object PRODUCTS: TButton
     Left = 40
-    Top = 112
+    Top = 104
     Width = 193
     Height = 59
-    Caption = 'PRODUCTS'
+    Caption = #1055#1056#1054#1044#1059#1050#1058#1067
     TabOrder = 2
     OnClick = PRODUCTSClick
   end
@@ -45,16 +45,16 @@ object MAIN_WINDOW: TMAIN_WINDOW
     Top = 232
     Width = 193
     Height = 66
-    Caption = 'LOSS'
+    Caption = #1057#1055#1048#1057#1040#1053#1048#1071
     TabOrder = 3
     OnClick = LOSSClick
   end
   object DAYLY_INCOME: TButton
     Left = 40
-    Top = 296
+    Top = 297
     Width = 193
     Height = 81
-    Caption = 'DAYLY_INCOME'
+    Caption = #1055#1056#1054#1044#1040#1046#1048' '#1047#1040' '#1044#1045#1053#1068
     TabOrder = 4
     OnClick = DAYLY_INCOMEClick
   end
@@ -63,7 +63,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
     Top = 376
     Width = 193
     Height = 65
-    Caption = 'EXPORT_EXEL'
+    Caption = #1069#1050#1057#1055#1054#1056#1058' '#1069#1050#1057#1069#1051#1068
     TabOrder = 5
     OnClick = EXPORT_EXELClick
   end

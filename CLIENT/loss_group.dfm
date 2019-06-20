@@ -13,12 +13,19 @@ object loss_group_form: Tloss_group_form
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 104
+    Top = 170
+    Width = 103
+    Height = 13
+    Caption = #1053#1054#1052#1045#1056' '#1053#1040#1050#1051#1040#1044#1053#1054#1049
+  end
   object ADD: TButton
     Left = 120
     Top = 216
     Width = 75
     Height = 25
-    Caption = 'ADD'
+    Caption = #1044#1054#1041#1040#1042#1048#1058#1068
     TabOrder = 0
     OnClick = ADDClick
   end
@@ -27,7 +34,7 @@ object loss_group_form: Tloss_group_form
     Top = 256
     Width = 89
     Height = 25
-    Caption = 'CREATE_DOCX'
+    Caption = #1057#1054#1047#1044#1040#1058#1068' '#1044#1054#1050#1057#1061
     TabOrder = 1
     OnClick = CREATE_DOCXClick
   end
@@ -36,7 +43,7 @@ object loss_group_form: Tloss_group_form
     Top = 216
     Width = 75
     Height = 25
-    Caption = 'DELETE'
+    Caption = #1059#1044#1040#1051#1048#1058#1068
     TabOrder = 2
     OnClick = DELETEClick
   end
@@ -74,6 +81,8 @@ object loss_group_form: Tloss_group_form
     EditLabel.Width = 75
     EditLabel.Height = 13
     EditLabel.Caption = 'invoice_number'
+    ImeName = 'QW'
+    LabelSpacing = -8
     TabOrder = 5
   end
   object inv: TDataSource

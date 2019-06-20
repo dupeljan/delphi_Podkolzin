@@ -17,6 +17,8 @@ type
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     LProduct: TLabel;
+    йнкхвеярбн: TLabel;
+    Label2: TLabel;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

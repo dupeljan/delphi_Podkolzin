@@ -17,16 +17,16 @@ object exel_input_form: Texel_input_form
   object Label1: TLabel
     Left = 128
     Top = 48
-    Width = 29
+    Width = 70
     Height = 13
-    Caption = 'FROM'
+    Caption = #1055#1045#1056#1042#1040#1071' '#1044#1040#1058#1040
   end
   object Label2: TLabel
     Left = 126
     Top = 117
-    Width = 14
+    Width = 71
     Height = 13
-    Caption = 'TO'
+    Caption = #1042#1058#1054#1056#1040#1071' '#1044#1040#1058#1040
   end
   object DateFrom: TDateTimePicker
     Left = 96
@@ -62,9 +62,9 @@ object exel_input_form: Texel_input_form
   object EXPORT_EXEL: TButton
     Left = 304
     Top = 184
-    Width = 89
+    Width = 113
     Height = 25
-    Caption = 'EXPORT_EXEL'
+    Caption = #1069#1050#1057#1055#1054#1056#1058' '#1069#1050#1057#1045#1051#1068
     TabOrder = 3
     OnClick = EXPORT_EXELClick
   end

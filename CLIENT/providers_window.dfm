@@ -32,19 +32,19 @@ object PROVIDERS_FORM: TPROVIDERS_FORM
     Left = 296
     Top = 144
     object ADD1: TMenuItem
-      Caption = 'ADD'
+      Caption = #1044#1054#1041#1040#1042#1048#1058#1068
       OnClick = ADD1Click
     end
     object DELETE: TMenuItem
-      Caption = 'DELETE'
+      Caption = #1059#1044#1040#1051#1048#1058#1068
       OnClick = DELETEClick
     end
     object EDIT: TMenuItem
-      Caption = 'EDIT'
+      Caption = #1048#1047#1052#1045#1053#1048#1058#1068
       OnClick = EDITClick
     end
     object EXIT1: TMenuItem
-      Caption = 'EXIT'
+      Caption = #1042#1067#1049#1058#1048
       OnClick = EXIT1Click
     end
   end

@@ -14,6 +14,13 @@ object purchase_inv_group_form: Tpurchase_inv_group_form
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 104
+    Top = 170
+    Width = 103
+    Height = 13
+    Caption = #1053#1054#1052#1045#1056' '#1053#1040#1050#1051#1040#1044#1053#1054#1049
+  end
   object Ginv_group: TDBGrid
     Left = 0
     Top = 0
@@ -45,7 +52,7 @@ object purchase_inv_group_form: Tpurchase_inv_group_form
     Top = 216
     Width = 75
     Height = 25
-    Caption = 'ADD'
+    Caption = #1044#1054#1041#1040#1042#1048#1058#1068
     TabOrder = 2
     OnClick = ADDClick
   end
@@ -54,7 +61,7 @@ object purchase_inv_group_form: Tpurchase_inv_group_form
     Top = 216
     Width = 75
     Height = 25
-    Caption = 'DELETE'
+    Caption = #1059#1044#1040#1051#1048#1058#1068
     TabOrder = 3
     OnClick = DELETEClick
   end
@@ -66,14 +73,15 @@ object purchase_inv_group_form: Tpurchase_inv_group_form
     EditLabel.Width = 75
     EditLabel.Height = 13
     EditLabel.Caption = 'invoice_number'
+    LabelSpacing = -10
     TabOrder = 4
   end
   object CREATE_DOCX: TButton
     Left = 208
     Top = 256
-    Width = 89
+    Width = 105
     Height = 25
-    Caption = 'CREATE_DOCX'
+    Caption = #1057#1054#1047#1044#1040#1058#1068' '#1044#1054#1050#1057#1061
     TabOrder = 5
     OnClick = CREATE_DOCXClick
   end

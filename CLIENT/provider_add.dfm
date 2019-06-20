@@ -13,6 +13,13 @@ object provider_add_form: Tprovider_add_form
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 144
+    Top = 32
+    Width = 22
+    Height = 13
+    Caption = #1048#1052#1071
+  end
   object labelEdit_name: TLabeledEdit
     Left = 96
     Top = 64
@@ -21,6 +28,7 @@ object provider_add_form: Tprovider_add_form
     EditLabel.Width = 72
     EditLabel.Height = 13
     EditLabel.Caption = 'labelEdit_name'
+    LabelSpacing = -10
     TabOrder = 0
   end
   object BitBtn1: TBitBtn
