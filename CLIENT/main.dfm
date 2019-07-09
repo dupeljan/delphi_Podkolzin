@@ -1,7 +1,7 @@
 object MAIN_WINDOW: TMAIN_WINDOW
   Left = 0
   Top = 0
-  Caption = 'MAIN_WINDOW'
+  Caption = #1043#1051#1040#1042#1053#1054#1045' '#1054#1050#1053#1054
   ClientHeight = 472
   ClientWidth = 277
   Color = clBtnFace
@@ -24,7 +24,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   end
   object PURCHASE_INV: TButton
     Left = 40
-    Top = 169
+    Top = 162
     Width = 193
     Height = 64
     Caption = #1055#1056#1048#1061#1054#1044#1053#1040#1071' '#1053#1040#1050#1051#1040#1044#1053#1040#1071
@@ -42,7 +42,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   end
   object LOSS: TButton
     Left = 40
-    Top = 232
+    Top = 225
     Width = 193
     Height = 66
     Caption = #1057#1055#1048#1057#1040#1053#1048#1071
@@ -51,7 +51,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   end
   object DAYLY_INCOME: TButton
     Left = 40
-    Top = 297
+    Top = 289
     Width = 193
     Height = 81
     Caption = #1055#1056#1054#1044#1040#1046#1048' '#1047#1040' '#1044#1045#1053#1068
@@ -60,7 +60,7 @@ object MAIN_WINDOW: TMAIN_WINDOW
   end
   object EXPORT_EXEL: TBitBtn
     Left = 40
-    Top = 376
+    Top = 368
     Width = 193
     Height = 65
     Caption = #1069#1050#1057#1055#1054#1056#1058' '#1069#1050#1057#1069#1051#1068

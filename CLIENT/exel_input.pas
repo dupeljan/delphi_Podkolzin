@@ -16,6 +16,7 @@ type
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     EXPORT_EXEL: TButton;
+    Label3: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure EXPORT_EXELClick(Sender: TObject);
   private

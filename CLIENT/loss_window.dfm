@@ -1,7 +1,7 @@
 object loss_form: Tloss_form
   Left = 0
   Top = 0
-  Caption = 'loss_form'
+  Caption = #1057#1055#1048#1057#1040#1053#1048#1071
   ClientHeight = 415
   ClientWidth = 771
   Color = clBtnFace
@@ -27,6 +27,39 @@ object loss_form: Tloss_form
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'THE_DATE'
+        Title.Caption = #1044#1072#1090#1072
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODUCT_NAME'
+        Title.Caption = #1058#1086#1074#1072#1088
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVIDER_NAME'
+        Title.Caption = ' '#1055#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1100
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODUCT_COUNT'
+        Title.Caption = #1050#1086#1083'-'#1074#1086
+        Visible = True
+      end>
   end
   object DataSource1: TDataSource
     DataSet = dm.QLoss_pretty

@@ -1,7 +1,7 @@
 object loss_add_form: Tloss_add_form
   Left = 0
   Top = 0
-  Caption = 'loss_add_form'
+  Caption = #1044#1054#1041#1040#1042#1048#1058#1068
   ClientHeight = 396
   ClientWidth = 868
   Color = clBtnFace
@@ -27,6 +27,13 @@ object loss_add_form: Tloss_add_form
     Height = 13
     Caption = #1050#1054#1051#1048#1063#1045#1057#1058#1042#1054
   end
+  object Label3: TLabel
+    Left = 496
+    Top = 133
+    Width = 28
+    Height = 13
+    Caption = #1044#1040#1058#1040
+  end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 56
@@ -39,6 +46,27 @@ object loss_add_form: Tloss_add_form
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NAME'
+        Title.Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVIDER_ID'
+        Title.Caption = #1053#1086#1084#1077#1088' '#1087#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1103
+        Width = 150
+        Visible = True
+      end>
   end
   object leCount: TLabeledEdit
     Left = 488

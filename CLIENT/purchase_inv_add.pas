@@ -19,6 +19,7 @@ type
     LProduct: TLabel;
     йнкхвеярбн: TLabel;
     Label2: TLabel;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

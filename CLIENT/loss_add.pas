@@ -17,6 +17,7 @@ type
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     Label2: TLabel;
+    Label3: TLabel;
   private
     { Private declarations }
   public

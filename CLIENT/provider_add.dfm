@@ -1,7 +1,7 @@
 object provider_add_form: Tprovider_add_form
   Left = 0
   Top = 0
-  Caption = 'provider_add_form'
+  Caption = #1044#1054#1041#1040#1042#1048#1058#1068' '#1055#1056#1054#1048#1047#1042#1054#1044#1048#1058#1045#1051#1071
   ClientHeight = 231
   ClientWidth = 458
   Color = clBtnFace

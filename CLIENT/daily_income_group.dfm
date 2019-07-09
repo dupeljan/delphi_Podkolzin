@@ -1,9 +1,9 @@
 object daily_income_group_form: Tdaily_income_group_form
   Left = 0
   Top = 0
-  Caption = 'daily_income_group_form'
+  Caption = #1060#1054#1056#1052#1048#1056#1054#1042#1040#1053#1048#1045' '#1053#1040#1050#1051#1040#1044#1053#1054#1049' '#1055#1056#1054#1044#1040#1046' '#1047#1040' '#1044#1045#1053#1068
   ClientHeight = 695
-  ClientWidth = 648
+  ClientWidth = 619
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,6 +19,13 @@ object daily_income_group_form: Tdaily_income_group_form
     Width = 103
     Height = 13
     Caption = #1053#1054#1052#1045#1056' '#1053#1040#1050#1051#1040#1044#1053#1054#1049
+  end
+  object Label2: TLabel
+    Left = 264
+    Top = 309
+    Width = 118
+    Height = 13
+    Caption = #1055#1054#1047#1048#1062#1048#1048' '#1053#1040#1050#1051#1040#1044#1053#1054#1049
   end
   object ADD: TButton
     Left = 120
@@ -49,8 +56,8 @@ object daily_income_group_form: Tdaily_income_group_form
   end
   object Ginv: TDBGrid
     Left = 0
-    Top = 304
-    Width = 513
+    Top = 328
+    Width = 617
     Height = 185
     DataSource = inv
     TabOrder = 3
@@ -59,11 +66,44 @@ object daily_income_group_form: Tdaily_income_group_form
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'THE_DATE'
+        Title.Caption = #1044#1072#1090#1072
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODUCT_NAME'
+        Title.Caption = #1058#1086#1074#1072#1088
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVIDER_NAME'
+        Title.Caption = #1055#1088#1086#1080#1079#1074#1086#1076#1080#1077#1090#1083#1100
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODUCT_COUNT'
+        Title.Caption = #1050#1086#1083'-'#1074#1086
+        Visible = True
+      end>
   end
   object Ginv_group: TDBGrid
     Left = 0
     Top = 0
-    Width = 513
+    Width = 611
     Height = 161
     DataSource = inv_group
     TabOrder = 4
@@ -75,6 +115,16 @@ object daily_income_group_form: Tdaily_income_group_form
     Columns = <
       item
         Expanded = False
+        FieldName = 'INVOICE_NUMBER'
+        Title.Caption = #1053#1086#1084#1077#1088' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DAILY_INCOME_ID'
+        Title.Caption = #1053#1086#1084#1077#1088' '#1087#1086#1079#1080#1094#1080#1080' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
+        Width = 200
         Visible = True
       end>
   end

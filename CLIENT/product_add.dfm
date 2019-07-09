@@ -1,7 +1,7 @@
 object product_add_form: Tproduct_add_form
   Left = 0
   Top = 0
-  Caption = 'product_add_form'
+  Caption = #1044#1054#1041#1040#1042#1048#1058#1068' '#1055#1056#1054#1044#1059#1050#1058
   ClientHeight = 236
   ClientWidth = 697
   Color = clBtnFace
@@ -51,6 +51,20 @@ object product_add_form: Tproduct_add_form
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NAME'
+        Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+        Width = 200
+        Visible = True
+      end>
   end
   object BitBtn1: TBitBtn
     Left = 88

@@ -1,7 +1,7 @@
 object PRODUCT_FORM: TPRODUCT_FORM
   Left = 0
   Top = 0
-  Caption = 'PRODUCT_FORM'
+  Caption = #1058#1054#1042#1040#1056#1067
   ClientHeight = 391
   ClientWidth = 1211
   Color = clBtnFace
@@ -27,6 +27,27 @@ object PRODUCT_FORM: TPRODUCT_FORM
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NAME'
+        Title.Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+        Width = 300
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVIDER_ID'
+        Title.Caption = #1053#1086#1084#1077#1088' '#1087#1088#1086#1076#1072#1074#1094#1072
+        Width = 90
+        Visible = True
+      end>
   end
   object DataSource1: TDataSource
     DataSet = dm.TProduct

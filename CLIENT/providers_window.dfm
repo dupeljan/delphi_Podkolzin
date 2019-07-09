@@ -1,7 +1,7 @@
 object PROVIDERS_FORM: TPROVIDERS_FORM
   Left = 0
   Top = 0
-  Caption = 'PROVIDERS_FORM'
+  Caption = #1055#1056#1054#1048#1047#1042#1054#1044#1048#1058#1045#1051#1048
   ClientHeight = 321
   ClientWidth = 650
   Color = clBtnFace
@@ -18,8 +18,8 @@ object PROVIDERS_FORM: TPROVIDERS_FORM
   object DBGrid1: TDBGrid
     Left = 0
     Top = 0
-    Width = 505
-    Height = 233
+    Width = 649
+    Height = 321
     DataSource = DataSource1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -27,6 +27,20 @@ object PROVIDERS_FORM: TPROVIDERS_FORM
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NAME'
+        Title.Caption = #1048#1084#1103
+        Width = 300
+        Visible = True
+      end>
   end
   object MainMenu1: TMainMenu
     Left = 296

@@ -1,7 +1,7 @@
 object exel_input_form: Texel_input_form
   Left = 0
   Top = 0
-  Caption = 'exel_input_form'
+  Caption = #1042#1067#1042#1054#1044' '#1069#1050#1057#1045#1051#1068
   ClientHeight = 231
   ClientWidth = 756
   Color = clBtnFace
@@ -27,6 +27,13 @@ object exel_input_form: Texel_input_form
     Width = 71
     Height = 13
     Caption = #1042#1058#1054#1056#1040#1071' '#1044#1040#1058#1040
+  end
+  object Label3: TLabel
+    Left = 416
+    Top = 16
+    Width = 88
+    Height = 13
+    Caption = #1055#1056#1054#1048#1047#1042#1054#1044#1048#1058#1045#1051#1068
   end
   object DateFrom: TDateTimePicker
     Left = 96
@@ -58,6 +65,19 @@ object exel_input_form: Texel_input_form
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Title.Caption = #1053#1086#1084#1077#1088
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NAME'
+        Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+        Visible = True
+      end>
   end
   object EXPORT_EXEL: TButton
     Left = 304
