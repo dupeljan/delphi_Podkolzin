@@ -43,6 +43,8 @@ type
     QDaily_income_group_pretty: TIBQuery;
     QGetProvider_products: TIBQuery;
     spGetCount: TIBStoredProc;
+    QGet_Period_Daily_income: TIBQuery;
+    QGet_Period_Loss: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure update_all();
@@ -87,6 +89,8 @@ begin
   dm.TDaily_income_group.Close;
   dm.QDaily_income_group_pretty.Close;
   dm.QGetProvider_products.Close;
+  dm.QGet_Period_Daily_income.Close;
+  dm.QGet_Period_Loss.Close;
 
    dm.TProvider.Open;
   dm.TProduct.Open;
@@ -103,5 +107,7 @@ begin
   dm.TDaily_income_group.open;
   dm.QDaily_income_group_pretty.open;
   dm.QGetProvider_products.Open;
+  dm.QGet_Period_Daily_income.Open;
+  dm.QGet_Period_Loss.Open;
 end;
 end.

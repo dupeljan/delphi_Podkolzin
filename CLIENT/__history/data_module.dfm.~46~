@@ -429,8 +429,8 @@ object dm: Tdm
     Database = my_database
     Transaction = IBTransaction1
     StoredProcName = 'GET_PRICE'
-    Left = 296
-    Top = 448
+    Left = 472
+    Top = 808
     ParamData = <
       item
         DataType = ftInteger
@@ -541,27 +541,118 @@ object dm: Tdm
     Top = 800
     ParamData = <
       item
-        DataType = ftUnknown
-        Name = 'IN_INVOICE_NUMBER              '
-        ParamType = ptUnknown
+        DataType = ftInteger
+        Name = 'IN_INVOICE_NUMBER'
+        ParamType = ptInput
       end
       item
-        DataType = ftUnknown
-        Name = 'IN_DAILY_INCOME_ID             '
-        ParamType = ptUnknown
+        DataType = ftInteger
+        Name = 'IN_DAILY_INCOME_ID'
+        ParamType = ptInput
       end>
   end
   object spDeleteDaily_income_group: TIBStoredProc
     Database = my_database
     Transaction = IBTransaction1
-    StoredProcName = 'DELETE_PURCHASE_INV_GROUP'
+    StoredProcName = 'DELETE_DAILY_INCOME_GROUP'
     Left = 160
     Top = 800
     ParamData = <
       item
-        DataType = ftUnknown
-        Name = 'IN_ID                          '
-        ParamType = ptUnknown
+        DataType = ftInteger
+        Name = 'IN_ID'
+        ParamType = ptInput
+      end>
+  end
+  object QDaily_income_group_pretty: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '    daily_income_group.id as id,'
+      '    product.id as PRODUCT_ID,'
+      '    provider.name as provider_name,'
+      '    product.name as product_name,'
+      '    daily_income.product_count as product_count,'
+      '    daily_income.the_date as the_date'
+      ''
+      ''
+      ' from'
+      'product join provider on product.provider_id = provider.id'
+      'join'
+      'daily_income join daily_income_group on'
+      'daily_income.id = daily_income_group.daily_income_id'
+      ''
+      'on daily_income.product_id = product.id'
+      ''
+      'where daily_income_group.INVOICE_NUMBER =  :IN_PURCHASE_NUMBER;')
+    Left = 168
+    Top = 728
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PURCHASE_NUMBER'
+        ParamType = ptInput
+      end>
+  end
+  object QGetProvider_products: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select id, name as product_name from product where provider_id =' +
+        ' :IN_PROVIDER_ID;')
+    Left = 400
+    Top = 736
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER_ID'
+        ParamType = ptInput
+      end>
+  end
+  object spGetCount: TIBStoredProc
+    Database = my_database
+    Transaction = IBTransaction1
+    StoredProcName = 'GET_PRODUCT_COUNT'
+    Left = 384
+    Top = 808
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PRODUCT_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_PURCH'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_LOSS'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_DAILY_INCOME'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'OUT_COUNT'
+        ParamType = ptOutput
       end>
   end
 end

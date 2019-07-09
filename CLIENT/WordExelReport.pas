@@ -321,8 +321,10 @@ end;
 
 
 procedure create_exel();
-Var Ap : Variant;
-  i, j,hight, price_before,price_after, count_before, count_after, purch_before,
+Var
+   varDiagram: OleVariant;
+   Ap : Variant;
+  provider_id,i, j,hight, price_before,price_after, count_before, count_after, purch_before,
   purch_after, sell_before,sell_after, loss_before, loss_after, d_income_before,
   d_income_after: integer;
 begin
@@ -344,6 +346,7 @@ begin
   // Находим все товары производителя
   dm.QGetProvider_products.ParamByName('IN_PROVIDER_ID').Value :=
   dm.TProvider.FieldByName('ID').Value;
+  provider_id := dm.TProvider.FieldByName('ID').Value;
   dm.update_all;
   dm.QGetProvider_products.Last;
   hight :=    dm.QGetProvider_products.RecordCount;
@@ -353,6 +356,8 @@ begin
     // exec get_count
     dm.spGetCount.ParamByName('IN_PRODUCT_ID').Value :=
     dm.QGetProvider_products.FieldByName('ID').Value;
+
+
 
     dm.spGetCount.ParamByName('IN_DATE').Value :=
     exel_input_form.DateFrom.Date;
@@ -464,7 +469,39 @@ begin
     dm.QGetProvider_products.Next;
   end;
 
-  
+  // Рисуем диаграммы
+
+  // Заполняем данные
+  dm.QGet_Period_Daily_income.ParamByName('IN_PROVIDER_ID').Value :=
+  provider_id;
+
+  dm.QGet_Period_Daily_income.ParamByName('IN_DATE_BEGIN_DATE').Value :=
+  exel_input_form.DateFrom.Date;
+
+  dm.QGet_Period_Daily_income.ParamByName('IN_DATE_END_DATE').Value :=
+  exel_input_form.DateTo.Date;
+
+  dm.update_all;
+  dm.QGet_Period_Daily_income.Last;
+  hight :=    dm.QGet_Period_Daily_income.RecordCount;
+  dm.QGet_Period_Daily_income.first;
+  for I := 0 to hight - 1  do begin
+       ap.Range['J' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('THE_DATE').asString;
+       ap.Range['K' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('PRICE').Value;
+       dm.QGet_Period_Daily_income.next;
+  end;
+
+
+  varDiagram := ap.Charts.Add;
+  varDiagram.Activate;
+  varDiagram.ChartType := 65;
+
+  varDiagram.hasTitle := True;
+  varDiagram.ChartTitle.Characters.Text := 'Test';
+
+  //varDiagram.SetSourceData(ap.ActiveWorkbook);
+                           // Specifies the data source (the excelsheet and the area in the Excel sheet)
+
   Ap.DisplayAlerts := False;
   Ap.Visible := True;
 end;

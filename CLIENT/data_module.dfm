@@ -2,7 +2,7 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 891
+  Height = 1046
   Width = 759
   object my_database: TIBDatabase
     Connected = True
@@ -653,6 +653,82 @@ object dm: Tdm
         DataType = ftInteger
         Name = 'OUT_COUNT'
         ParamType = ptOutput
+      end>
+  end
+  object QGet_Period_Daily_income: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select the_date as THE_DATE , sum( (select out_price from get_pr' +
+        'ice(product_id,the_date)) ) as PRICE'
+      'from daily_income'
+      
+        'where product_id in (select  product_id from product where provi' +
+        'der_id = :IN_PROVIDER_ID)'
+      'AND'
+      'datediff(DAY,the_date,:IN_DATE_BEGIN_DATE) <= 0'
+      'AND'
+      'datediff(DAY,the_date,:IN_DATE_END_DATE)  >= 0'
+      'group by the_date')
+    Left = 96
+    Top = 912
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE_BEGIN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE_END_DATE'
+        ParamType = ptInput
+      end>
+  end
+  object QGet_Period_Loss: TIBQuery
+    Database = my_database
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select the_date , sum( (select out_price from get_price(product_' +
+        'id,the_date)) )'
+      'from loss'
+      
+        'where product_id in (select  product_id from product where provi' +
+        'der_id = :IN_PROVIDER_ID)'
+      'AND'
+      'datediff(DAY,the_date,:IN_DATE_BEGIN_DATE) <= 0'
+      'AND'
+      'datediff(DAY,the_date,:IN_DATE_END_DATE)  >= 0'
+      'group by the_date')
+    Left = 224
+    Top = 912
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IN_PROVIDER_ID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE_BEGIN_DATE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftDate
+        Name = 'IN_DATE_END_DATE'
+        ParamType = ptInput
       end>
   end
 end
