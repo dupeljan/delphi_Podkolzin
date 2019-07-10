@@ -322,9 +322,9 @@ end;
 
 procedure create_exel();
 Var
-   varDiagram: OleVariant;
+   varDiagram_sell, varDiagram_loss: OleVariant;
    Ap : Variant;
-  provider_id,i, j,hight, price_before,price_after, count_before, count_after, purch_before,
+  provider_id,i, j,hight,hight_sell, hight_loss, price_before,price_after, count_before, count_after, purch_before,
   purch_after, sell_before,sell_after, loss_before, loss_after, d_income_before,
   d_income_after: integer;
 begin
@@ -356,8 +356,6 @@ begin
     // exec get_count
     dm.spGetCount.ParamByName('IN_PRODUCT_ID').Value :=
     dm.QGetProvider_products.FieldByName('ID').Value;
-
-
 
     dm.spGetCount.ParamByName('IN_DATE').Value :=
     exel_input_form.DateFrom.Date;
@@ -472,6 +470,7 @@ begin
   // Рисуем диаграммы
 
   // Заполняем данные
+  // Вычисляем приходы
   dm.QGet_Period_Daily_income.ParamByName('IN_PROVIDER_ID').Value :=
   provider_id;
 
@@ -481,25 +480,65 @@ begin
   dm.QGet_Period_Daily_income.ParamByName('IN_DATE_END_DATE').Value :=
   exel_input_form.DateTo.Date;
 
+  // Записываем в лист
   dm.update_all;
   dm.QGet_Period_Daily_income.Last;
-  hight :=    dm.QGet_Period_Daily_income.RecordCount;
+  hight_sell :=    dm.QGet_Period_Daily_income.RecordCount;
   dm.QGet_Period_Daily_income.first;
-  for I := 0 to hight - 1  do begin
+   ap.Range['J3'] := 'Продажи';
+   ap.Range['K3'] := 'Руб';
+  for I := 0 to hight_sell - 1  do begin
        ap.Range['J' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('THE_DATE').asString;
        ap.Range['K' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('PRICE').Value;
        dm.QGet_Period_Daily_income.next;
   end;
 
 
-  varDiagram := ap.Charts.Add;
-  varDiagram.Activate;
-  varDiagram.ChartType := 65;
+  // Вычисляем списания
+  dm.QGet_Period_Loss.ParamByName('IN_PROVIDER_ID').Value :=
+  provider_id;
 
-  varDiagram.hasTitle := True;
-  varDiagram.ChartTitle.Characters.Text := 'Test';
+  dm.QGet_Period_Loss.ParamByName('IN_DATE_BEGIN_DATE').Value :=
+  exel_input_form.DateFrom.Date;
 
-  //varDiagram.SetSourceData(ap.ActiveWorkbook);
+  dm.QGet_Period_Loss.ParamByName('IN_DATE_END_DATE').Value :=
+  exel_input_form.DateTo.Date;
+
+   // Записываем в лист
+  dm.update_all;
+  dm.QGet_Period_Loss.Last;
+  hight_loss :=    dm.QGet_Period_Loss.RecordCount;
+  dm.QGet_Period_Loss.first;
+  ap.Range['L3'] := 'Списания';
+  ap.Range['M3'] := 'Руб';
+  for I := 0 to hight_loss - 1  do begin
+       ap.Range['L' + inttostr(i+4)] := dm.QGet_Period_Loss.FieldByName('THE_DATE').asString;
+       ap.Range['M' + inttostr(i+4)] := dm.QGet_Period_Loss.FieldByName('PRICE').Value;
+       dm.QGet_Period_Loss.next;
+  end;
+
+  // Рисуем списания
+  varDiagram_loss := ap.Charts.Add;
+  varDiagram_loss.Activate;
+  varDiagram_loss.ChartType := 65;
+
+  varDiagram_loss.hasTitle := True;
+  varDiagram_loss.ChartTitle.Characters.Text := 'График списания товаров';
+
+
+  varDiagram_loss.SetSourceData(ap.WorkSheets['Лист1'].Range['M4:M' +inttostr(4+hight_loss)],xlColumns) ;
+                           // Specifies the data source (the excelsheet and the area in the Excel sheet)
+  // Рисуем продажи
+
+  varDiagram_sell := ap.Charts.Add;
+  varDiagram_sell.Activate;
+  varDiagram_sell.ChartType := 65;
+
+  varDiagram_sell.hasTitle := True;
+  varDiagram_sell.ChartTitle.Characters.Text := 'График продажи товаров';
+
+
+  varDiagram_sell.SetSourceData(ap.WorkSheets['Лист1'].Range['K4:K' +inttostr(4+hight_loss)],xlColumns) ;
                            // Specifies the data source (the excelsheet and the area in the Excel sheet)
 
   Ap.DisplayAlerts := False;

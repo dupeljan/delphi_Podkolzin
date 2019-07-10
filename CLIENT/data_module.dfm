@@ -667,8 +667,8 @@ object dm: Tdm
         'ice(product_id,the_date)) ) as PRICE'
       'from daily_income'
       
-        'where product_id in (select  product_id from product where provi' +
-        'der_id = :IN_PROVIDER_ID)'
+        'where product_id in (select id from product where provider_id = ' +
+        ':IN_PROVIDER_ID)'
       'AND'
       'datediff(DAY,the_date,:IN_DATE_BEGIN_DATE) <= 0'
       'AND'
@@ -701,12 +701,12 @@ object dm: Tdm
     ParamCheck = True
     SQL.Strings = (
       
-        'select the_date , sum( (select out_price from get_price(product_' +
-        'id,the_date)) )'
+        'select the_date as THE_DATE , sum( (select out_price from get_pr' +
+        'ice(product_id,the_date)) ) as PRICE'
       'from loss'
       
-        'where product_id in (select  product_id from product where provi' +
-        'der_id = :IN_PROVIDER_ID)'
+        'where product_id in (select  id from product where provider_id =' +
+        ' :IN_PROVIDER_ID)'
       'AND'
       'datediff(DAY,the_date,:IN_DATE_BEGIN_DATE) <= 0'
       'AND'
