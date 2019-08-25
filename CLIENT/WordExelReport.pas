@@ -467,10 +467,10 @@ begin
     dm.QGetProvider_products.Next;
   end;
 
-  // Рисуем диаграммы
+
 
   // Заполняем данные
-  // Вычисляем приходы
+  // Вычисляем продажи
   dm.QGet_Period_Daily_income.ParamByName('IN_PROVIDER_ID').Value :=
   provider_id;
 
@@ -490,6 +490,10 @@ begin
   for I := 0 to hight_sell - 1  do begin
        ap.Range['J' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('THE_DATE').asString;
        ap.Range['K' + inttostr(i+4)] := dm.QGet_Period_Daily_income.FieldByName('PRICE').Value;
+
+      // varDiagram_sell.SeriesCollection (i) :=
+       //dm.QGet_Period_Daily_income.FieldByName('THE_DATE').asString;
+
        dm.QGet_Period_Daily_income.next;
   end;
 
@@ -514,9 +518,14 @@ begin
   for I := 0 to hight_loss - 1  do begin
        ap.Range['L' + inttostr(i+4)] := dm.QGet_Period_Loss.FieldByName('THE_DATE').asString;
        ap.Range['M' + inttostr(i+4)] := dm.QGet_Period_Loss.FieldByName('PRICE').Value;
+
+       // varDiagram_loss.SeriesCollection (i) :=
+       // dm.QGet_Period_Loss.FieldByName('THE_DATE').asString;
+
        dm.QGet_Period_Loss.next;
   end;
 
+  // Рисуем диаграммы
   // Рисуем списания
   varDiagram_loss := ap.Charts.Add;
   varDiagram_loss.Activate;
@@ -528,6 +537,12 @@ begin
 
   varDiagram_loss.SetSourceData(ap.WorkSheets['Лист1'].Range['M4:M' +inttostr(4+hight_loss)],xlColumns) ;
                            // Specifies the data source (the excelsheet and the area in the Excel sheet)
+
+  // даты на ось x
+  //for I := 0 to hight_loss - 1 do
+  //    varDiagram_loss.SeriesCollection(i) :=
+  //    'la';//ap.Range['L'  +inttostr(4+i)].value;
+
   // Рисуем продажи
 
   varDiagram_sell := ap.Charts.Add;
@@ -540,6 +555,8 @@ begin
 
   varDiagram_sell.SetSourceData(ap.WorkSheets['Лист1'].Range['K4:K' +inttostr(4+hight_loss)],xlColumns) ;
                            // Specifies the data source (the excelsheet and the area in the Excel sheet)
+
+
 
   Ap.DisplayAlerts := False;
   Ap.Visible := True;

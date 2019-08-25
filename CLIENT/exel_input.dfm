@@ -2,8 +2,8 @@ object exel_input_form: Texel_input_form
   Left = 0
   Top = 0
   Caption = #1042#1067#1042#1054#1044' '#1069#1050#1057#1045#1051#1068
-  ClientHeight = 231
-  ClientWidth = 756
+  ClientHeight = 220
+  ClientWidth = 739
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
